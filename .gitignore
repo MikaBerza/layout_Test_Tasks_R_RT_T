@@ -5,6 +5,11 @@
 /.pnp
 .pnp.js
 
+/junk
+.gitignore
+.stylelintrc.json
+tsconfig.json
+
 # testing
 /coverage
 
