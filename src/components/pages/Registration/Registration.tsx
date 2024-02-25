@@ -1,29 +1,31 @@
 import React from 'react';
+import { useAppDispatch } from '../../../redux/hooks';
+import { fetchRegistration } from '../../../redux/slices/loginFormSlice';
 import { Logo } from '../../commons/Logo';
 import { FormTitle } from '../../commons/Titles';
 import { InputField, CheckboxField } from '../../commons/forms';
 import styles from './Registration.module.css';
+import { userDataType } from '../../../types/customType';
 
 const Registration = () => {
   const [valueLogin, setValueLogin] = React.useState('');
   const [valuePassword, setValuePassword] = React.useState('');
   const [valueConfirmPassword, setValueConfirmPassword] = React.useState('');
-  const [valueChecked, setValueChecked] = React.useState(false);
+  const [isAdmin, setIsAdmin] = React.useState(false);
+  const dispatch = useAppDispatch();
 
-  const handleFormSubmit = (event: any) => {
-    // Отменяет действие по умолчанию, просим форму не отправлять данные самостоятельно
+  const handleFormSubmit = async (event: any) => {
     event.preventDefault();
 
-    const dataForm = {
-      valueLogin,
-      valuePassword,
-      valueConfirmPassword,
-      valueChecked,
+    // данные регистрации пользователя
+    const userRegistrationData: userDataType = {
+      username: valueLogin,
+      password: valuePassword,
+      password_confirmation: valueConfirmPassword,
+      is_admin: isAdmin,
     };
-    const json = JSON.stringify(dataForm);
-    const obj = JSON.parse(json);
-    console.log('Отправка!, json', json);
-    console.log('Отправка!, obj', obj);
+    // Регистрация пользователя
+    dispatch(fetchRegistration(userRegistrationData));
   };
 
   return (
@@ -32,9 +34,9 @@ const Registration = () => {
         <Logo />
         <FormTitle text='Регистрация' />
         <InputField
-          name='login'
+          name='registrationLogin'
           type='text'
-          id='login'
+          id='registrationLogin'
           placeholder='Логин'
           pattern='[A-Za-z]{3,6}'
           hintText='Формат: от трех до шести латинских букв'
@@ -43,9 +45,9 @@ const Registration = () => {
           value={valueLogin}
         />
         <InputField
-          name='password'
+          name='registrationPassword'
           type='password'
-          id='password'
+          id='registrationPassword'
           placeholder='Пароль'
           pattern='[0-9]{3,6}'
           hintText='Формат: от трех до шести цифр'
@@ -54,9 +56,9 @@ const Registration = () => {
           value={valuePassword}
         />
         <InputField
-          name='confirmYourPassword'
+          name='registrationConfirmYourPassword'
           type='password'
-          id='confirmYourPassword'
+          id='registrationConfirmYourPassword'
           placeholder='Подтвердите свой пароль'
           pattern={`${valuePassword}`}
           maxLength={6}
@@ -65,12 +67,12 @@ const Registration = () => {
           value={valueConfirmPassword}
         />
         <CheckboxField
-          name='checkbox'
+          name='registrationCheckbox'
           type='checkbox'
-          id='checkbox'
-          onChange={(e) => setValueChecked(e.target.checked)}
-          checked={valueChecked}
-          htmlFor='checkbox'
+          id='registrationCheckbox'
+          onChange={(e) => setIsAdmin(e.target.checked)}
+          checked={isAdmin}
+          htmlFor='registrationCheckbox'
           text='вы администратор?'
         />
         <div className={styles.buttons}>

@@ -21,3 +21,15 @@ export type CheckboxFieldPropsType = {
   htmlFor: string;
   text: string;
 };
+
+export type userDataType = {
+  username: string;
+  password: string;
+  password_confirmation?: string;
+  is_admin?: boolean;
+};
+
+export type loginFormType = {
+  registrationUserData: userDataType | {};
+  authorizationsUserData: userDataType | {};
+};
