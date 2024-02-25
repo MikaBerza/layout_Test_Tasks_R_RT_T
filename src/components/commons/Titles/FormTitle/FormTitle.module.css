@@ -1,0 +1,9 @@
+.title {
+  overflow: hidden;
+  max-width: 260px;
+  margin: 5px auto 0;
+  font-size: 28px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  color: var(--black1-color);
+}

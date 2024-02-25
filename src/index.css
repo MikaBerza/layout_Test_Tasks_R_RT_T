@@ -43,6 +43,32 @@
   src: url('../src/assets/fonts/Roboto-Black.ttf') format('TrueType');
 }
 
+:root {
+  --white1-color: #FFFFFF;
+
+  --gray1-color: #A6A6A6;
+  --gray2-color: #ced4da;
+  --gray3-color: #818181;
+  --gray4-color: #F1F3F2;
+
+  --black1-color: #1B1F2B;
+
+  --blue1-color: #2AABEE;
+  --blue2-color: #269ad8;
+  --blue3-color: #126d9e;
+
+  --red1-color: tomato;
+}
+
+#root {
+  position: relative;
+  min-height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', 'Times New Roman', Times, serif;
