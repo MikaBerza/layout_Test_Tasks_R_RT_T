@@ -33,3 +33,8 @@ export type loginFormType = {
   registrationUserData: userDataType | {};
   authorizationsUserData: userDataType | {};
 };
+
+export type ButtonLoginFormType = {
+  name: string;
+  type: 'submit' | 'reset';
+};
