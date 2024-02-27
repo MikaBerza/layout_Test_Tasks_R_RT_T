@@ -1,0 +1,47 @@
+.wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  backdrop-filter: blur(40px);
+}
+
+.inner {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-weight: 700;
+  color: black;
+}
+
+.textLink {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  color: black;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 1s ease;
+}
+
+.logoLink {
+  display: block;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.textLink path {
+  transition: fill 1s ease;
+}
+
+.textLink:hover {
+  border-bottom: 1px solid red;
+}
+
+.textLink:hover path {
+  fill: red;
+}

@@ -1,13 +1,23 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HomePage, Registration, Authorization } from './components/pages';
 import './App.css';
-import { Registration, Authorization } from './components/pages';
 
 function App() {
   return (
-    <div className='App'>
-      <Registration />
-      <Authorization />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/layout_Test_Tasks_R_RT_T' element={<HomePage />} />
+        <Route
+          path='/layout_Test_Tasks_R_RT_T/registration'
+          element={<Registration />}
+        />
+        <Route
+          path='/layout_Test_Tasks_R_RT_T/authorization'
+          element={<Authorization />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
