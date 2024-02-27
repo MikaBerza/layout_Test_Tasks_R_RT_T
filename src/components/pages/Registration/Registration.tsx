@@ -84,7 +84,11 @@ const Registration = () => {
           htmlFor='registrationCheckbox'
           text='вы администратор?'
         />
-        <ButtonLoginForm name='Зарегистрировать' type='submit' />
+        <ButtonLoginForm
+          elementName='link'
+          name='Зарегистрировать'
+          type='submit'
+        />
       </form>
     </div>
   );

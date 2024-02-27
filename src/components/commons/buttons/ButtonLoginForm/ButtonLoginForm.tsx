@@ -1,13 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './ButtonLoginForm.module.css';
 import { ButtonLoginFormType } from '../../../../types/customType';
 
-const ButtonLoginForm = ({ name, type }: ButtonLoginFormType) => {
+const ButtonLoginForm = ({ elementName, name, type }: ButtonLoginFormType) => {
   return (
-    <div className={styles.buttons}>
-      <button className={styles.button} type={type}>
-        {name}
-      </button>
+    <div className={styles.wrapper}>
+      {elementName === 'link' ? (
+        <Link to='/layout_Test_Tasks_R_RT_T/authorization'>
+          <button className={styles.btn} type={type}>
+            {name}
+          </button>
+        </Link>
+      ) : (
+        <button className={styles.btn} type={type}>
+          {name}
+        </button>
+      )}
     </div>
   );
 };

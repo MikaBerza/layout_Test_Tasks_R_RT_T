@@ -1,8 +1,8 @@
-.buttons {
+.wrapper {
   text-align: end;
 }
 
-.button {
+.btn {
   overflow: hidden;
   max-width: 200px;
   margin-top: 50px;
@@ -17,12 +17,12 @@
   cursor: pointer;
 }
 
-.button:hover {
+.btn:hover {
   background-color: var(--blue3-color);
   border: 1px solid var(--blue3-color);
 }
 
-.button:active {
+.btn:active {
   position: relative;
   top: 2px;
   transform: scale3d(0.99, 0.99, 0.99);
