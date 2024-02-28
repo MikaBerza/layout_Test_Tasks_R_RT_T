@@ -35,7 +35,7 @@ export type loginFormType = {
 };
 
 export type ButtonLoginFormType = {
-  elementName?: string;
+  path: string;
   name: string;
   type: 'submit' | 'reset';
 };

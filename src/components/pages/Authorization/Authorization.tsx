@@ -58,7 +58,11 @@ const Authorization = () => {
           onChange={(e) => setValuePassword(e.target.value)}
           value={valuePassword}
         />
-        <ButtonLoginForm name='Войти' type='submit' />
+        <ButtonLoginForm
+          path='/layout_Test_Tasks_R_RT_T/tests-list-page'
+          name='Войти'
+          type='submit'
+        />
       </form>
     </div>
   );

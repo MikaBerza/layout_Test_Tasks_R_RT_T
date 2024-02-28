@@ -85,7 +85,7 @@ const Registration = () => {
           text='вы администратор?'
         />
         <ButtonLoginForm
-          elementName='link'
+          path='/layout_Test_Tasks_R_RT_T/authorization'
           name='Зарегистрировать'
           type='submit'
         />
