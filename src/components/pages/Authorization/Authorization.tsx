@@ -32,7 +32,7 @@ const Authorization = () => {
   );
 
   return (
-    <div className={styles.wrapper}>
+    <main className={styles.wrapper}>
       <form className={styles.inner} onSubmit={handleFormSubmit}>
         <LogoMain />
         <TitleLoginForm text='Авторизация' />
@@ -64,7 +64,7 @@ const Authorization = () => {
           type='submit'
         />
       </form>
-    </div>
+    </main>
   );
 };
 

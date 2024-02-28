@@ -38,7 +38,7 @@ const Registration = () => {
   );
 
   return (
-    <div className={styles.wrapper}>
+    <main className={styles.wrapper}>
       <form className={styles.inner} onSubmit={handleFormSubmit}>
         <LogoMain />
         <TitleLoginForm text='Регистрация' />
@@ -90,7 +90,7 @@ const Registration = () => {
           type='submit'
         />
       </form>
-    </div>
+    </main>
   );
 };
 
