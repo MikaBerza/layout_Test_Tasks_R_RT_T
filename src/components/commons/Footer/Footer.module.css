@@ -28,12 +28,6 @@
   transition: border-bottom 1s ease;
 }
 
-.logoLink {
-  display: block;
-  align-items: center;
-  margin-left: 5px;
-}
-
 .textLink path {
   transition: fill 1s ease;
 }

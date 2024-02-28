@@ -1,2 +1,2 @@
 export { default as Footer } from './Footer';
-export { default as LogoGit } from './LogoGit';
+export { default as LogoGit } from '../logos/LogoGit/LogoGit';

@@ -1,0 +1,31 @@
+.title {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 150px 20px 0 20px;
+  font-size: 76px;
+  font-weight: 700;
+  line-height: 109%;
+  text-align: center;
+  letter-spacing: 1.92px;
+  color: var(--lightgrey-color);
+}
+
+/*770px___________________________________________________*/
+@media (max-width: 770px) {
+
+  .title {
+    font-size: 48px;
+  }
+}
+
+/*550px___________________________________________________*/
+@media (max-width: 550px) {
+
+  .title {
+    max-width: 360px;
+    padding-top: 120px;
+    font-size: 34px;
+    line-height: 112%;
+    letter-spacing: 0.68px;
+  }
+}

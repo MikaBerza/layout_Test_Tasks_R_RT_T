@@ -1,9 +1,9 @@
-import styles from './Footer.module.css';
+import styles from './LogoGit.module.css';
 
 const LogoGit = () => {
   return (
     <svg
-      className={styles.logoLink}
+      className={styles.images}
       width='16px'
       height='16px'
       viewBox='0 0 15 15'

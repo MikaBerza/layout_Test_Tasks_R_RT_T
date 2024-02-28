@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAppDispatch } from '../../../redux/hooks';
 import { fetchRegistration } from '../../../redux/slices/loginFormSlice';
-import { Logo } from '../../commons/Logo';
-import { FormTitle } from '../../commons/Titles';
+import { LogoMain } from '../../commons/logos';
+import { TitleLoginForm } from '../../commons/titles';
 import { InputField, CheckboxField } from '../../commons/forms';
 import { ButtonLoginForm } from '../../commons/buttons';
 import styles from './Registration.module.css';
@@ -40,8 +40,8 @@ const Registration = () => {
   return (
     <div className={styles.wrapper}>
       <form className={styles.inner} onSubmit={handleFormSubmit}>
-        <Logo />
-        <FormTitle text='Регистрация' />
+        <LogoMain />
+        <TitleLoginForm text='Регистрация' />
         <InputField
           name='registrationLogin'
           type='text'

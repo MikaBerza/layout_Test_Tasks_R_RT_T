@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAppDispatch } from '../../../redux/hooks';
 import { fetchAuthorization } from '../../../redux/slices/loginFormSlice';
-import { Logo } from '../../commons/Logo';
-import { FormTitle } from '../../commons/Titles';
+import { LogoMain } from '../../commons/logos';
+import { TitleLoginForm } from '../../commons/titles';
 import { InputField } from '../../commons/forms';
 import { ButtonLoginForm } from '../../commons/buttons';
 import styles from './Authorization.module.css';
@@ -34,8 +34,8 @@ const Authorization = () => {
   return (
     <div className={styles.wrapper}>
       <form className={styles.inner} onSubmit={handleFormSubmit}>
-        <Logo />
-        <FormTitle text='Авторизация' />
+        <LogoMain />
+        <TitleLoginForm text='Авторизация' />
         <InputField
           name='authorizationLogin'
           type='text'

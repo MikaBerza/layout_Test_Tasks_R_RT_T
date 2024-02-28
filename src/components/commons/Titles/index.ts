@@ -1,1 +1,2 @@
-export { default as FormTitle } from '../Titles/FormTitle/FormTitle';
+export { default as TitleLoginForm } from './TitleLoginForm/TitleLoginForm';
+export { default as TitleMain } from './TitleMain/TitleMain';
