@@ -1,8 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../redux/hooks';
 import { fetchAuthorization } from '../../../redux/slices/loginFormSlice';
 import { LogoMain } from '../../commons/logos';
 import { TitleLoginForm } from '../../commons/titles';
+import {
+  patternLogo,
+  patternPassword,
+} from '../../../utils/modules';
 import { InputField } from '../../commons/forms';
 import { ButtonLoginForm } from '../../commons/buttons';
 import styles from './Authorization.module.css';
@@ -12,6 +17,7 @@ const Authorization = () => {
   const [valueLogin, setValueLogin] = React.useState('');
   const [valuePassword, setValuePassword] = React.useState('');
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   // обработать форму отправки
   const handleFormSubmit = React.useCallback(
@@ -24,11 +30,13 @@ const Authorization = () => {
       };
       // авторизация пользователя
       dispatch(fetchAuthorization(userAuthorizationData));
+      // переход по маршруту, на страницу со списком тестов
+      navigate('/layout_Test_Tasks_R_RT_T/tests-list-page');
       // очищаем поля ввода
       setValueLogin('');
       setValuePassword('');
     },
-    [dispatch, valueLogin, valuePassword]
+    [dispatch, navigate, valueLogin, valuePassword]
   );
 
   return (
@@ -41,10 +49,12 @@ const Authorization = () => {
           type='text'
           id='authorizationLogin'
           placeholder='Логин'
-          pattern='[A-Za-z]{6,8}'
+          pattern={patternLogo}
           hintText='Формат: от шести до восьми латинских букв'
           maxLength={8}
-          onChange={(e) => setValueLogin(e.target.value)}
+          onChange={(e) => {
+            setValueLogin(e.target.value);
+          }}
           value={valueLogin}
         />
         <InputField
@@ -52,17 +62,15 @@ const Authorization = () => {
           type='password'
           id='authorizationsPassword'
           placeholder='Пароль'
-          pattern='[0-9]{6,8}'
+          pattern={patternPassword}
           hintText='Формат: от шести до восьми цифр'
           maxLength={8}
-          onChange={(e) => setValuePassword(e.target.value)}
+          onChange={(e) => {
+            setValuePassword(e.target.value);
+          }}
           value={valuePassword}
         />
-        <ButtonLoginForm
-          path='/layout_Test_Tasks_R_RT_T/tests-list-page'
-          name='Войти'
-          type='submit'
-        />
+        <ButtonLoginForm name='Войти' type='submit' />
       </form>
     </main>
   );

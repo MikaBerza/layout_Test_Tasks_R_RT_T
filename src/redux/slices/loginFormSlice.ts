@@ -1,11 +1,20 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { loginFormType, userDataType } from '../../types/customType';
+import {
+  loginFormType,
+  responseDataType,
+  userDataType,
+} from '../../types/customType';
 import { token } from '../../utils/modules';
 
 // начальное состояние
 const initialState: loginFormType = {
   registrationUserData: {},
   authorizationsUserData: {},
+  isLoading: false,
+  errorMessage: {
+    isError: false,
+    statusError: '.',
+  },
 };
 
 // регистрация
@@ -48,9 +57,15 @@ export const fetchAuthorization = createAsyncThunk(
         body: JSON.stringify(userData),
       }
     );
-    const data = await response.json();
-    console.log('авторизация', data);
-    return data;
+
+    const data: object = await response.json();
+    const responseData: responseDataType = {
+      data,
+      responseIsSuccessful: response.ok,
+      statusCode: response.status,
+    };
+    console.log(responseData);
+    return responseData;
   }
 );
 
@@ -64,15 +79,39 @@ export const loginFormSlice = createSlice({
     setAuthorizationUserData(state, action) {
       state.authorizationsUserData = action.payload;
     },
+    setIsLoading(state, action) {
+      state.isLoading = action.payload;
+    },
+    setIsError(state, action) {
+      state.errorMessage.isError = action.payload;
+    },
   },
 
-  // extraReducers: (builder) => {
-  //   builder
-  //     //___управление добавлением данных на сервера
-  //     .addCase(fetchRegistration.fulfilled, (state, action) => {
-  //       state.loginForm.push(action.payload);
-  //     });
-  // },
+  extraReducers: (builder) => {
+    builder
+      //___управление авторизацией пользователя
+      .addCase(fetchAuthorization.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchAuthorization.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.authorizationsUserData = action.payload;
+        console.log('action.payload', action.payload);
+        // если HTTP-статус ответа не в диапазоне 200-299
+        if (action.payload.responseIsSuccessful === false) {
+          // изменяем состояние, для перехода на страницу Errors
+          state.errorMessage.isError = true;
+          state.errorMessage.statusError = String(action.payload.statusCode);
+        } else {
+          state.errorMessage.isError = false;
+          state.errorMessage.statusError = '.';
+        }
+      })
+      .addCase(fetchAuthorization.rejected, (state, action) => {
+        state.isLoading = false;
+        state.errorMessage.isError = true;
+      });
+  },
 });
 
 export const { setRegistrationUserData, setAuthorizationUserData } =

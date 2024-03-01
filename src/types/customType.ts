@@ -29,13 +29,23 @@ export type userDataType = {
   is_admin?: boolean;
 };
 
+export type ButtonLoginFormType = {
+  name: string;
+  type: 'submit' | 'reset';
+};
+
 export type loginFormType = {
   registrationUserData: userDataType | {};
   authorizationsUserData: userDataType | {};
+  isLoading: boolean;
+  errorMessage: {
+    isError: boolean;
+    statusError: string;
+  };
 };
 
-export type ButtonLoginFormType = {
-  path: string;
-  name: string;
-  type: 'submit' | 'reset';
+export type responseDataType = {
+  data: object;
+  responseIsSuccessful: boolean;
+  statusCode: number;
 };

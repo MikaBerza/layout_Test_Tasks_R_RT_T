@@ -84,11 +84,7 @@ const Registration = () => {
           htmlFor='registrationCheckbox'
           text='вы администратор?'
         />
-        <ButtonLoginForm
-          path='/layout_Test_Tasks_R_RT_T/authorization'
-          name='Зарегистрировать'
-          type='submit'
-        />
+        <ButtonLoginForm name='Зарегистрировать' type='submit' />
       </form>
     </main>
   );
