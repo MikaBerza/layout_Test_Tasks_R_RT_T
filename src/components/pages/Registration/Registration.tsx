@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../redux/hooks';
 import { fetchRegistration } from '../../../redux/slices/loginFormSlice';
 import { LogoMain } from '../../commons/logos';
@@ -14,8 +15,9 @@ const Registration = () => {
   const [valueConfirmPassword, setValueConfirmPassword] = React.useState('');
   const [isAdmin, setIsAdmin] = React.useState(false);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  // обработать форму отправки
+  // функция, обработать форму отправки
   const handleFormSubmit = React.useCallback(
     (event: React.FormEvent) => {
       event.preventDefault();
@@ -28,13 +30,22 @@ const Registration = () => {
       };
       // регистрация пользователя
       dispatch(fetchRegistration(userRegistrationData));
+      // переход по маршруту, на страницу авторизации
+      navigate('/layout_Test_Tasks_R_RT_T/authorization');
       // очищаем поля ввода
       setValueLogin('');
       setValuePassword('');
       setValueConfirmPassword('');
       setIsAdmin(false);
     },
-    [dispatch, isAdmin, valueConfirmPassword, valueLogin, valuePassword]
+    [
+      dispatch,
+      isAdmin,
+      navigate,
+      valueConfirmPassword,
+      valueLogin,
+      valuePassword,
+    ]
   );
 
   return (

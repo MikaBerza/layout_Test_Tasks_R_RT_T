@@ -34,9 +34,14 @@ export const fetchRegistration = createAsyncThunk(
         body: JSON.stringify(userData),
       }
     );
-    const data = await response.json();
-    console.log('регистрация', data);
-    return data;
+    const data: object = await response.json();
+    const responseData: responseDataType = {
+      data,
+      responseIsSuccessful: response.ok,
+      statusCode: response.status,
+    };
+    console.log(responseData);
+    return responseData;
   }
 );
 
@@ -89,14 +94,14 @@ export const loginFormSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      //___управление авторизацией пользователя
-      .addCase(fetchAuthorization.pending, (state) => {
+      //___управление регистрацией пользователя
+      .addCase(fetchRegistration.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(fetchAuthorization.fulfilled, (state, action) => {
+      .addCase(fetchRegistration.fulfilled, (state, action) => {
         state.isLoading = false;
         state.authorizationsUserData = action.payload;
-        console.log('action.payload', action.payload);
+        console.log('fetchRegistration:action.payload', action.payload);
         // если HTTP-статус ответа не в диапазоне 200-299
         if (action.payload.responseIsSuccessful === false) {
           // изменяем состояние, для перехода на страницу Errors
@@ -107,7 +112,29 @@ export const loginFormSlice = createSlice({
           state.errorMessage.statusError = '.';
         }
       })
-      .addCase(fetchAuthorization.rejected, (state, action) => {
+      .addCase(fetchRegistration.rejected, (state) => {
+        state.isLoading = false;
+        state.errorMessage.isError = true;
+      })
+      //___управление авторизацией пользователя
+      .addCase(fetchAuthorization.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchAuthorization.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.authorizationsUserData = action.payload;
+        console.log('fetchAuthorization:action.payload', action.payload);
+        // если HTTP-статус ответа не в диапазоне 200-299
+        if (action.payload.responseIsSuccessful === false) {
+          // изменяем состояние, для перехода на страницу Errors
+          state.errorMessage.isError = true;
+          state.errorMessage.statusError = String(action.payload.statusCode);
+        } else {
+          state.errorMessage.isError = false;
+          state.errorMessage.statusError = '.';
+        }
+      })
+      .addCase(fetchAuthorization.rejected, (state) => {
         state.isLoading = false;
         state.errorMessage.isError = true;
       });

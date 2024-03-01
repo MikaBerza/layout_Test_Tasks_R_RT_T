@@ -4,10 +4,7 @@ import { useAppDispatch } from '../../../redux/hooks';
 import { fetchAuthorization } from '../../../redux/slices/loginFormSlice';
 import { LogoMain } from '../../commons/logos';
 import { TitleLoginForm } from '../../commons/titles';
-import {
-  patternLogo,
-  patternPassword,
-} from '../../../utils/modules';
+import { patternLogo, patternPassword } from '../../../utils/modules';
 import { InputField } from '../../commons/forms';
 import { ButtonLoginForm } from '../../commons/buttons';
 import styles from './Authorization.module.css';
@@ -19,7 +16,7 @@ const Authorization = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  // обработать форму отправки
+  // функция, обработать форму отправки
   const handleFormSubmit = React.useCallback(
     (event: React.FormEvent) => {
       event.preventDefault();
