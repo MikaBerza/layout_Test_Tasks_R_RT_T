@@ -9,7 +9,7 @@
   margin: auto;
   padding: 40px;
   text-align: center;
-  border: 1px solid #ced4da;
+  border: 1px solid var(--gray2-color);
   border-radius: 5px;
 }
 
