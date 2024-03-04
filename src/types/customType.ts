@@ -49,3 +49,10 @@ export type responseDataType = {
   responseIsSuccessful: boolean;
   statusCode: number;
 };
+
+export type CardTestPropsType = {
+  title: string;
+  dateTime: string;
+  thePathToEdit?: string;
+  pathToTest: string;
+};

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
 import { TitleMain } from '../../commons/titles';
-import { MinorText } from '../../commons/MinorText';
-import pencil from '../../../assets/images/pencil.png';
+import { CardTest } from '../../commons/CardTest';
+import { listTest } from '../../../utils/listTest';
 import styles from './TestsListPage.module.css';
 
 const TestsListPage = () => {
@@ -20,46 +20,20 @@ const TestsListPage = () => {
     }
   }, [errorMessage.isError, navigate]);
 
-  const cardWww = React.useMemo(() => {
-    return (
-      <div className={styles.cardTest} key='#12345'>
-        <div className={styles.content}>
-          <div className={styles.qqq}>
-            <img className={styles.pencil} src={pencil} alt='pencil' />
-            <h3 className={styles.title}>Название теста</h3>
-          </div>
-
-          <Link className={styles.linkBtn} to='#'>
-            <p
-              className={styles.personalColor}
-              // @ts-ignore
-              style={{ '--currentColor': 'black' }}
-            />
-          </Link>
-        </div>
-
-        <div className={styles.dateTime}>
-          <MinorText str='20/11/23, 10:00' />
-          <button className={styles.btn}>редактировать</button>
-        </div>
-      </div>
-    );
-  }, []);
-
   return (
     <main className={styles.wrapper}>
-      <TitleMain textTitle='Список тестов' />
+      <TitleMain textTitle='Тесты' />
       <div className={styles.container}>
-        {
-          <>
-            <>{cardWww}</>
-            <>{cardWww}</>
-            <>{cardWww}</>
-            <>{cardWww}</>
-            <>{cardWww}</>
-            <>{cardWww}</>
-          </>
-        }
+        {listTest.map((item) => {
+          return (
+            <CardTest
+              key={item.keyId}
+              title={item.title}
+              dateTime={item.dateTime}
+              pathToTest={item.pathToTest}
+            />
+          );
+        })}
       </div>
     </main>
   );
@@ -69,18 +43,13 @@ TestsListPage.displayName = 'TestsListPage';
 export default TestsListPage;
 
 /*
-        <div className='card'>
-          <img src='...' className='img' alt='...' />
-          <div className='body'>
-            <h5 className='title'>Название теста</h5>
-            <p className='text'>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-
-            <Link to='#' className='btn'>
-              <button> Редактировать тест</button>
-            </Link>
-          </div>
-        </div>
+!!!фдлводф овдфл оывдл фоыдвло фджывло фждлвоы ждф
+ зфлывщзфл оыдвлф ждывл жфдлыв 
+ фжы вдлф оджвлф ждылвжд флыжвдл фждывл 
+ длфы двлофдлыв офдлвыо фдвл фжды лвждф 
+ длфь ыдвлфжды влфжд ывлжфдыл вжфдл ы
+ длфы двлофдлыв офдлвыо фдвл фжды лвждф 
+ длфы двлофдлыв офдлвыо фдвл фжды лвждф 
+ длфы двлофдлыв офдлвыо фдвл фжды лвждф 
+ &&&&
 */

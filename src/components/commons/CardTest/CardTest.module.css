@@ -1,0 +1,72 @@
+.card {
+  position: relative;
+  margin-bottom: 30px;
+  padding: 20px 80px 20px 20px;
+  background: var(--beige200-color);
+  box-shadow: rgba(0, 0, 0, 0.5) 0px -25px 20px -20px;
+  border: 3px solid var(--gray6-color);
+}
+
+.card::before {
+  position: absolute;
+  top: calc(100% - 57px);
+  right: -3px;
+  box-shadow: rgba(0, 0, 0, 0.5) -8px -22px 15px -20px;
+  border-top: 60px solid var(--gray6-color);
+  border-right: 80px solid white;
+  content: '';
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 120px;
+  padding-top: 20px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.images {
+  width: 50px;
+  padding-right: 10px;
+}
+
+.title {
+  max-height: 120px;
+  margin: 0;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.linkBtn:active {
+  position: relative;
+  left: 6px;
+}
+
+.arrow {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  border-top: 10px solid var(--black2-color);
+  border-right: 10px solid var(--black2-color);
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+.dateTime {
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+  padding-top: 20px;
+}
+
+.content,
+.dateTime,
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
