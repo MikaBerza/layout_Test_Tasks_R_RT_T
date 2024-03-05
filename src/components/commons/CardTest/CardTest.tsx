@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ButtonEdit } from '../buttons';
 import { MinorText } from '../MinorText';
-import images from '../../../assets/images/test.png';
+import image from '../../../assets/images/test.png';
 import styles from './CardTest.module.css';
 import { CardTestPropsType } from '../../../types/customType';
 
@@ -12,15 +13,16 @@ const CardTest = ({
   pathToTest,
 }: CardTestPropsType) => {
   return (
-    <div className={styles.card}>
-      <div className={styles.wrapper}>
+    <div className={styles.wrapper}>
+      <div className={styles.inner}>
         <div className={styles.content}>
           {/* <ButtonEdit path='#' /> будем добавлять если пользователь(adm) */}
-          <img className={styles.images} src={images} alt='img' />
+          <ButtonEdit path='#' />
+          <img className={styles.image} src={image} alt='img' />
+          {/* title до 110 знаков с пробелом! */}
           <h3 className={styles.title}>{title}</h3>
         </div>
-
-        <Link className={styles.linkBtn} to={pathToTest}>
+        <Link className={styles.linkBtn} to='#'>
           <p className={styles.arrow} />
         </Link>
       </div>

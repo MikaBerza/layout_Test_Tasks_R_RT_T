@@ -30,7 +30,6 @@ const TestsListPage = () => {
               key={item.keyId}
               title={item.title}
               dateTime={item.dateTime}
-              pathToTest={item.pathToTest}
             />
           );
         })}
@@ -41,15 +40,3 @@ const TestsListPage = () => {
 
 TestsListPage.displayName = 'TestsListPage';
 export default TestsListPage;
-
-/*
-!!!фдлводф овдфл оывдл фоыдвло фджывло фждлвоы ждф
- зфлывщзфл оыдвлф ждывл жфдлыв 
- фжы вдлф оджвлф ждылвжд флыжвдл фждывл 
- длфы двлофдлыв офдлвыо фдвл фжды лвждф 
- длфь ыдвлфжды влфжд ывлжфдыл вжфдл ы
- длфы двлофдлыв офдлвыо фдвл фжды лвждф 
- длфы двлофдлыв офдлвыо фдвл фжды лвждф 
- длфы двлофдлыв офдлвыо фдвл фжды лвждф 
- &&&&
-*/

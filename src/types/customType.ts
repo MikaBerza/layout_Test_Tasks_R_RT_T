@@ -54,5 +54,5 @@ export type CardTestPropsType = {
   title: string;
   dateTime: string;
   thePathToEdit?: string;
-  pathToTest: string;
+  pathToTest?: string;
 };

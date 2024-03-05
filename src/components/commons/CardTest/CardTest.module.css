@@ -1,13 +1,13 @@
-.card {
+.wrapper {
   position: relative;
   margin-bottom: 30px;
-  padding: 20px 80px 20px 20px;
+  padding: 20px;
   background: var(--beige200-color);
   box-shadow: rgba(0, 0, 0, 0.5) 0px -25px 20px -20px;
   border: 3px solid var(--gray6-color);
 }
 
-.card::before {
+.wrapper::before {
   position: absolute;
   top: calc(100% - 57px);
   right: -3px;
@@ -17,11 +17,11 @@
   content: '';
 }
 
-.wrapper {
+.inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 120px;
+  height: 105px;
   padding-top: 20px;
 }
 
@@ -30,7 +30,7 @@
   align-items: center;
 }
 
-.images {
+.image {
   width: 50px;
   padding-right: 10px;
 }
@@ -38,7 +38,7 @@
 .title {
   max-height: 120px;
   margin: 0;
-  font-size: 35px;
+  font-size: 34px;
   font-weight: 500;
 }
 
@@ -69,4 +69,45 @@
 .title {
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/*1024px___________________________________________________*/
+@media (max-width: 1024px) {
+  .wrapper {
+    padding: 10px;
+  }
+
+  .image {
+    width: 40px;
+  }
+
+  .title {
+    font-size: 27px;
+  }
+
+  .arrow {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/*770px___________________________________________________*/
+@media (max-width: 770px) {
+
+  .title {
+    font-size: 24px;
+  }
+}
+
+/*550px___________________________________________________*/
+@media (max-width: 550px) {
+
+  .image {
+    display: none;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
 }
