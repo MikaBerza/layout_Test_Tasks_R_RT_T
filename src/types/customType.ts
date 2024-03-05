@@ -1,5 +1,6 @@
 import { ChangeEvent } from 'react';
 
+// Типы, для элементов DOM
 export type InputFieldPropsType = {
   name: string;
   type?: string;
@@ -22,32 +23,9 @@ export type CheckboxFieldPropsType = {
   text: string;
 };
 
-export type userDataType = {
-  username: string;
-  password: string;
-  password_confirmation?: string;
-  is_admin?: boolean;
-};
-
 export type ButtonLoginFormType = {
   name: string;
   type: 'submit' | 'reset';
-};
-
-export type loginFormType = {
-  registrationUserData: userDataType | {};
-  authorizationsUserData: userDataType | {};
-  isLoading: boolean;
-  errorMessage: {
-    isError: boolean;
-    statusError: string;
-  };
-};
-
-export type responseDataType = {
-  data: object;
-  responseIsSuccessful: boolean;
-  statusCode: number;
 };
 
 export type CardTestPropsType = {
@@ -56,3 +34,36 @@ export type CardTestPropsType = {
   thePathToEdit?: string;
   pathToTest?: string;
 };
+
+// Типы, для данных при регистрации и авторизации пользователя
+export type userDataType = {
+  username: string;
+  password: string;
+  password_confirmation?: string;
+  is_admin?: boolean;
+};
+
+export type responseUserDataType = {
+  id: number;
+  username: string;
+  is_admin: boolean;
+};
+
+export type responseDataType = {
+  data: responseUserDataType;
+  responseIsSuccessful: boolean;
+  statusCode: number;
+};
+
+export type loginFormType = {
+  registrationUserData: userDataType | {};
+  authorizationsUserData: userDataType | {};
+  isAdmin: boolean;
+  isLoading: boolean;
+  errorMessage: {
+    isError: boolean;
+    statusError: string;
+  };
+};
+
+// Типы,

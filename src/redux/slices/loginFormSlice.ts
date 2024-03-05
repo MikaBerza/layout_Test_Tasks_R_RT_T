@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {
-  loginFormType,
-  responseDataType,
   userDataType,
+  responseUserDataType,
+  responseDataType,
+  loginFormType,
 } from '../../types/customType';
 import { token } from '../../utils/modules';
 
@@ -10,6 +11,7 @@ import { token } from '../../utils/modules';
 const initialState: loginFormType = {
   registrationUserData: {},
   authorizationsUserData: {},
+  isAdmin: false,
   isLoading: false,
   errorMessage: {
     isError: false,
@@ -34,13 +36,13 @@ export const fetchRegistration = createAsyncThunk(
         body: JSON.stringify(userData),
       }
     );
-    const data: object = await response.json();
+    const data: responseUserDataType = await response.json();
     const responseData: responseDataType = {
       data,
       responseIsSuccessful: response.ok,
       statusCode: response.status,
     };
-    console.log(responseData);
+    // console.log(responseData);
     return responseData;
   }
 );
@@ -63,13 +65,13 @@ export const fetchAuthorization = createAsyncThunk(
       }
     );
 
-    const data: object = await response.json();
+    const data: responseUserDataType = await response.json();
     const responseData: responseDataType = {
       data,
       responseIsSuccessful: response.ok,
       statusCode: response.status,
     };
-    console.log(responseData);
+    // console.log(responseData);
     return responseData;
   }
 );
@@ -83,6 +85,9 @@ export const loginFormSlice = createSlice({
     },
     setAuthorizationUserData(state, action) {
       state.authorizationsUserData = action.payload;
+    },
+    setIsAdmin(state, action) {
+      state.isAdmin = action.payload;
     },
     setIsLoading(state, action) {
       state.isLoading = action.payload;
@@ -104,7 +109,6 @@ export const loginFormSlice = createSlice({
         console.log('fetchRegistration:action.payload', action.payload);
         // если HTTP-статус ответа не в диапазоне 200-299
         if (action.payload.responseIsSuccessful === false) {
-          // изменяем состояние, для перехода на страницу Errors
           state.errorMessage.isError = true;
           state.errorMessage.statusError = String(action.payload.statusCode);
         } else {
@@ -126,10 +130,10 @@ export const loginFormSlice = createSlice({
         console.log('fetchAuthorization:action.payload', action.payload);
         // если HTTP-статус ответа не в диапазоне 200-299
         if (action.payload.responseIsSuccessful === false) {
-          // изменяем состояние, для перехода на страницу Errors
           state.errorMessage.isError = true;
           state.errorMessage.statusError = String(action.payload.statusCode);
         } else {
+          state.isAdmin = action.payload.data.is_admin;
           state.errorMessage.isError = false;
           state.errorMessage.statusError = '.';
         }
