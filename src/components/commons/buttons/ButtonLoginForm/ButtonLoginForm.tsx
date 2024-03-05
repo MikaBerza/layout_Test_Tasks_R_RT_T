@@ -4,11 +4,9 @@ import { ButtonLoginFormType } from '../../../../types/customType';
 
 const ButtonLoginForm = ({ name, type }: ButtonLoginFormType) => {
   return (
-    <div className={styles.wrapper}>
-      <button className={styles.btn} type={type}>
-        {name}
-      </button>
-    </div>
+    <button className={styles.btn} type={type}>
+      {name}
+    </button>
   );
 };
 

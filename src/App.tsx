@@ -21,7 +21,15 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/layout_Test_Tasks_R_RT_T' element={<HomePage />} />
+        <Route
+          path='/layout_Test_Tasks_R_RT_T'
+          element={
+            <>
+              <HomePage />
+              <Footer />
+            </>
+          }
+        />
         <Route
           path='/layout_Test_Tasks_R_RT_T/registration'
           element={<Registration />}

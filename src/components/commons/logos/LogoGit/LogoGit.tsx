@@ -3,7 +3,7 @@ import styles from './LogoGit.module.css';
 const LogoGit = () => {
   return (
     <svg
-      className={styles.images}
+      className={styles.image}
       width='16px'
       height='16px'
       viewBox='0 0 15 15'

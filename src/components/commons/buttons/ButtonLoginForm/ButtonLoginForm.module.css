@@ -1,8 +1,5 @@
-.wrapper {
-  text-align: end;
-}
-
 .btn {
+  float: right;
   overflow: hidden;
   max-width: 200px;
   margin-top: 50px;
@@ -10,20 +7,19 @@
   font-size: 18px;
   text-overflow: ellipsis;
   color: var(--white1-color);
-  background-color: var(--blue1-color);
-  border: 1px solid var(--blue1-color);
+  background-color: var(--blue3-color);
+  border: 1px solid var(--blue3-color);
   border-radius: 5px;
   transition: background-color 0.3s ease, border 0.3s ease;
   cursor: pointer;
 }
 
 .btn:hover {
-  background-color: var(--blue3-color);
-  border: 1px solid var(--blue3-color);
+  background-color: var(--blue1-color);
+  border: 1px solid var(--blue1-color);
 }
 
 .btn:active {
   position: relative;
   top: 2px;
-  transform: scale3d(0.99, 0.99, 0.99);
 }

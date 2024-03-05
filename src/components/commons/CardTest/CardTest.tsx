@@ -24,12 +24,10 @@ const CardTest = ({
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.inner}>
-        <div className={styles.content}>
-          {isAdmin && <ButtonEdit path='#' />}
-          <img className={styles.image} src={image} alt='img' />
-          <h3 className={styles.title}>{title}</h3>
-        </div>
+      {isAdmin && <ButtonEdit path='#' />}
+      <div className={styles.content}>
+        <img className={styles.image} src={image} alt='img' />
+        <h3 className={styles.title}>{title}</h3>
         <Link className={styles.linkBtn} to='#'>
           <p className={styles.arrow} />
         </Link>

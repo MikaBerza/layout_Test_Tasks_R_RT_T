@@ -1,4 +1,4 @@
-import LogoGit from '../logos/LogoGit/LogoGit';
+import { LogoGit } from '../logos';
 import styles from './Footer.module.css';
 
 const Footer = () => {
