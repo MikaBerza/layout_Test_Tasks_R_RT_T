@@ -8,10 +8,10 @@ import { TitleLoginForm } from '../../commons/titles';
 import { patternLogo, patternPassword } from '../../../utils/modules';
 import { InputField } from '../../commons/forms';
 import { ButtonLoginForm } from '../../commons/buttons';
-import styles from './Authorization.module.css';
+import styles from './AuthorizationPage.module.css';
 import { userDataType } from '../../../types/customType';
 
-const Authorization = () => {
+const AuthorizationPage = () => {
   const [valueLogin, setValueLogin] = React.useState('');
   const [valuePassword, setValuePassword] = React.useState('');
   const { errorMessage } = useAppSelector(
@@ -84,5 +84,5 @@ const Authorization = () => {
   );
 };
 
-Authorization.displayName = 'Authorization';
-export default Authorization;
+AuthorizationPage.displayName = 'AuthorizationPage';
+export default AuthorizationPage;

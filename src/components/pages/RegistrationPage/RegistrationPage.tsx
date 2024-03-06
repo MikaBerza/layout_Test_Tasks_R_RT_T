@@ -6,10 +6,10 @@ import { LogoMain } from '../../commons/logos';
 import { TitleLoginForm } from '../../commons/titles';
 import { InputField, CheckboxField } from '../../commons/forms';
 import { ButtonLoginForm } from '../../commons/buttons';
-import styles from './Registration.module.css';
+import styles from './RegistrationPage.module.css';
 import { userDataType } from '../../../types/customType';
 
-const Registration = () => {
+const RegistrationPage = () => {
   const [valueLogin, setValueLogin] = React.useState('');
   const [valuePassword, setValuePassword] = React.useState('');
   const [valueConfirmPassword, setValueConfirmPassword] = React.useState('');
@@ -101,5 +101,5 @@ const Registration = () => {
   );
 };
 
-Registration.displayName = 'Registration';
-export default Registration;
+RegistrationPage.displayName = 'RegistrationPage';
+export default RegistrationPage;

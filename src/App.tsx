@@ -4,8 +4,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Header } from './components/commons/Header';
 import {
   HomePage,
-  Registration,
-  Authorization,
+  RegistrationPage,
+  AuthorizationPage,
   TestsListPage,
   ErrorPage,
 } from './components/pages';
@@ -32,11 +32,11 @@ function App() {
         />
         <Route
           path='/layout_Test_Tasks_R_RT_T/registration'
-          element={<Registration />}
+          element={<RegistrationPage />}
         />
         <Route
           path='/layout_Test_Tasks_R_RT_T/authorization'
-          element={isLoading ? <Loading /> : <Authorization />}
+          element={isLoading ? <Loading /> : <AuthorizationPage />}
         />
         <Route
           path='/layout_Test_Tasks_R_RT_T/tests-list-page'
