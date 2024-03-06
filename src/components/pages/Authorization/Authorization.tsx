@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { fetchAuthorization } from '../../../redux/slices/loginFormSlice';
+import { RootState } from '../../../redux/store';
 import { LogoMain } from '../../commons/logos';
 import { TitleLoginForm } from '../../commons/titles';
 import { patternLogo, patternPassword } from '../../../utils/modules';
@@ -13,8 +14,18 @@ import { userDataType } from '../../../types/customType';
 const Authorization = () => {
   const [valueLogin, setValueLogin] = React.useState('');
   const [valuePassword, setValuePassword] = React.useState('');
+  const { errorMessage } = useAppSelector(
+    (state: RootState) => state.loginFormSlice
+  );
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (errorMessage.isError) {
+      // переходим по маршруту, на страницу с ошибкой
+      navigate('/layout_Test_Tasks_R_RT_T/error');
+    }
+  }, [errorMessage.isError, navigate]);
 
   // функция, обработать форму отправки
   const handleFormSubmit = React.useCallback(

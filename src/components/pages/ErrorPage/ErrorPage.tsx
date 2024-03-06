@@ -1,8 +1,8 @@
 import { useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
-import styles from './Errors.module.css';
+import styles from './ErrorPage.module.css';
 
-const Errors = () => {
+const ErrorPage = () => {
   const { errorMessage } = useAppSelector(
     (state: RootState) => state.loginFormSlice
   );
@@ -14,5 +14,5 @@ const Errors = () => {
   );
 };
 
-Errors.displayName = 'Errors';
-export default Errors;
+ErrorPage.displayName = 'ErrorPage';
+export default ErrorPage;

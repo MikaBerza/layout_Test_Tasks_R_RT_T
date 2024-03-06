@@ -106,7 +106,6 @@ export const loginFormSlice = createSlice({
       .addCase(fetchRegistration.fulfilled, (state, action) => {
         state.isLoading = false;
         state.authorizationsUserData = action.payload;
-        console.log('fetchRegistration:action.payload', action.payload);
         // если HTTP-статус ответа не в диапазоне 200-299
         if (action.payload.responseIsSuccessful === false) {
           state.errorMessage.isError = true;
@@ -116,9 +115,10 @@ export const loginFormSlice = createSlice({
           state.errorMessage.statusError = '.';
         }
       })
-      .addCase(fetchRegistration.rejected, (state) => {
+      .addCase(fetchRegistration.rejected, (state, action) => {
         state.isLoading = false;
         state.errorMessage.isError = true;
+        console.error('An error occurred:', action.error.message);
       })
       //___управление авторизацией пользователя
       .addCase(fetchAuthorization.pending, (state) => {
@@ -127,7 +127,6 @@ export const loginFormSlice = createSlice({
       .addCase(fetchAuthorization.fulfilled, (state, action) => {
         state.isLoading = false;
         state.authorizationsUserData = action.payload;
-        console.log('fetchAuthorization:action.payload', action.payload);
         // если HTTP-статус ответа не в диапазоне 200-299
         if (action.payload.responseIsSuccessful === false) {
           state.errorMessage.isError = true;
@@ -138,9 +137,10 @@ export const loginFormSlice = createSlice({
           state.errorMessage.statusError = '.';
         }
       })
-      .addCase(fetchAuthorization.rejected, (state) => {
+      .addCase(fetchAuthorization.rejected, (state, action) => {
         state.isLoading = false;
         state.errorMessage.isError = true;
+        console.error('An error occurred:', action.error.message);
       });
   },
 });

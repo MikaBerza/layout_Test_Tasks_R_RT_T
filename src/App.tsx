@@ -7,9 +7,9 @@ import {
   Registration,
   Authorization,
   TestsListPage,
+  ErrorPage,
 } from './components/pages';
 import { Loading } from './components/commons/Loading';
-import { Errors } from './components/commons/Errors';
 import { Footer } from './components/commons/Footer';
 import './App.css';
 
@@ -39,7 +39,7 @@ function App() {
           element={isLoading ? <Loading /> : <Authorization />}
         />
         <Route
-          path={'/layout_Test_Tasks_R_RT_T/tests-list-page'}
+          path='/layout_Test_Tasks_R_RT_T/tests-list-page'
           element={
             isLoading ? (
               <Loading />
@@ -60,7 +60,7 @@ function App() {
             ) : (
               <>
                 <Header />
-                <Errors />
+                <ErrorPage />
                 <Footer />
               </>
             )
