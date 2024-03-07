@@ -1,4 +1,8 @@
 .wrapper {
+  padding: 60px 20px 60px;
+}
+
+.inner {
   position: relative;
   margin-bottom: 30px;
   padding: 20px;
@@ -7,7 +11,7 @@
   border: 3px solid var(--gray6-color);
 }
 
-.wrapper::before {
+.inner::before {
   position: absolute;
   top: calc(100% - 57px);
   right: -3px;
@@ -67,7 +71,7 @@
 
 /*1024px___________________________________________________*/
 @media (max-width: 1024px) {
-  .wrapper {
+  .inner {
     padding: 10px;
   }
 

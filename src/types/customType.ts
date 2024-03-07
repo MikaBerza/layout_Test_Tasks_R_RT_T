@@ -28,7 +28,8 @@ export type ButtonLoginFormType = {
   type: 'submit' | 'reset';
 };
 
-export type CardTestPropsType = {
+export type CardTestType = {
+  keyId: string;
   title: string;
   dateTime: string;
   thePathToEdit?: string;

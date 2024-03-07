@@ -6,7 +6,6 @@ import { Header } from '../../commons/Header';
 import { TitleMain } from '../../commons/titles';
 import { CardTest } from '../../commons/CardTest';
 import { Footer } from '../../commons/Footer';
-import { listTest } from '../../../utils/listTest';
 import styles from './TestsListPage.module.css';
 
 const TestsListPage = () => {
@@ -27,17 +26,7 @@ const TestsListPage = () => {
       <Header />
       <main className={styles.wrapper}>
         <TitleMain textTitle='Тесты' />
-        <div className={styles.container}>
-          {listTest.map((item) => {
-            return (
-              <CardTest
-                key={item.keyId}
-                title={item.title}
-                dateTime={item.dateTime}
-              />
-            );
-          })}
-        </div>
+        <CardTest />
       </main>
       <Footer />
     </>
@@ -45,4 +34,4 @@ const TestsListPage = () => {
 };
 
 TestsListPage.displayName = 'TestsListPage';
-export default TestsListPage;
+export default React.memo(TestsListPage);
