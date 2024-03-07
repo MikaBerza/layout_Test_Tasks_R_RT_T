@@ -1,5 +1,7 @@
 import { useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
+import { Footer } from '../../commons/Footer';
+import { Header } from '../../commons/Header';
 import styles from './ErrorPage.module.css';
 
 const ErrorPage = () => {
@@ -8,9 +10,13 @@ const ErrorPage = () => {
   );
 
   return (
-    <div className={styles.wrapper}>
-      <h2 className={styles.text}>Error...{errorMessage.statusError}</h2>
-    </div>
+    <>
+      <Header />
+      <main className={styles.wrapper}>
+        <h2 className={styles.text}>Error...{errorMessage.statusError}</h2>
+      </main>
+      <Footer />
+    </>
   );
 };
 
