@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/layout_Test_Tasks_R_RT_T/static/css/main.7a00509e.css",
-    "main.js": "/layout_Test_Tasks_R_RT_T/static/js/main.3c71b2a0.js",
+    "main.js": "/layout_Test_Tasks_R_RT_T/static/js/main.ef833435.js",
     "static/media/Roboto-Medium.ttf": "/layout_Test_Tasks_R_RT_T/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Thin.ttf": "/layout_Test_Tasks_R_RT_T/static/media/Roboto-Thin.a732a12eb07742232407.ttf",
     "static/media/Roboto-Regular.ttf": "/layout_Test_Tasks_R_RT_T/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
@@ -11,10 +11,10 @@
     "static/media/Errors.png": "/layout_Test_Tasks_R_RT_T/static/media/Errors.75676ebc96df85dc8809.png",
     "index.html": "/layout_Test_Tasks_R_RT_T/index.html",
     "main.7a00509e.css.map": "/layout_Test_Tasks_R_RT_T/static/css/main.7a00509e.css.map",
-    "main.3c71b2a0.js.map": "/layout_Test_Tasks_R_RT_T/static/js/main.3c71b2a0.js.map"
+    "main.ef833435.js.map": "/layout_Test_Tasks_R_RT_T/static/js/main.ef833435.js.map"
   },
   "entrypoints": [
     "static/css/main.7a00509e.css",
-    "static/js/main.3c71b2a0.js"
+    "static/js/main.ef833435.js"
   ]
 }
