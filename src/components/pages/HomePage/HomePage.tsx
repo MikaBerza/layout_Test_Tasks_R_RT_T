@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { pathList } from '../../../utils/modules';
 import { Footer } from '../../commons/Footer';
 import styles from './HomePage.module.css';
 
@@ -16,16 +17,10 @@ const HomePage = () => {
         </div>
 
         <div className={styles.links}>
-          <Link
-            className={styles.link}
-            to='/layout_Test_Tasks_R_RT_T/registration'
-          >
+          <Link className={styles.link} to={pathList.registration}>
             Регистрация
           </Link>
-          <Link
-            className={styles.link}
-            to='/layout_Test_Tasks_R_RT_T/authorization'
-          >
+          <Link className={styles.link} to={pathList.authorization}>
             Авторизация
           </Link>
         </div>

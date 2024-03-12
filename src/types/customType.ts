@@ -1,5 +1,14 @@
 import { ChangeEvent } from 'react';
 
+export type pathListType = {
+  homePage: string;
+  registration: string;
+  authorization: string;
+  testsListPage: string;
+  errorPage: string;
+  githubPage: string;
+};
+
 // Типы, для элементов DOM
 export type InputFieldPropsType = {
   name: string;

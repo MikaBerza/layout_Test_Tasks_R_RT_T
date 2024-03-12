@@ -5,9 +5,13 @@ import { fetchAuthorization } from '../../../../redux/slices/loginFormSlice';
 import { RootState } from '../../../../redux/store';
 import { LogoMain } from '../../../commons/logos';
 import { TitleLoginForm } from '../../../commons/titles';
-import { patternLogo, patternPassword } from '../../../../utils/modules';
 import { InputField } from '../../../commons/forms';
 import { ButtonLoginForm } from '../../../commons/buttons';
+import {
+  pathList,
+  patternLogo,
+  patternPassword,
+} from '../../../../utils/modules';
 import styles from '../loginPages.module.css';
 import { userDataType } from '../../../../types/customType';
 
@@ -23,7 +27,7 @@ const AuthorizationPage = () => {
   React.useEffect(() => {
     if (errorMessage.isError) {
       // переходим по маршруту, на страницу с ошибкой
-      navigate('/layout_Test_Tasks_R_RT_T/error');
+      navigate(pathList.errorPage);
     }
   }, [errorMessage.isError, navigate]);
 
@@ -39,7 +43,7 @@ const AuthorizationPage = () => {
       // авторизация пользователя
       dispatch(fetchAuthorization(userAuthorizationData));
       // переход по маршруту, на страницу со списком тестов
-      navigate('/layout_Test_Tasks_R_RT_T/tests-list-page');
+      navigate(pathList.testsListPage);
       // очищаем поля ввода
       setValueLogin('');
       setValuePassword('');

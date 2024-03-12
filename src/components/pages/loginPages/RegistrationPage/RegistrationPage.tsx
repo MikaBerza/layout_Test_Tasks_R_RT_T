@@ -6,6 +6,7 @@ import { LogoMain } from '../../../commons/logos';
 import { TitleLoginForm } from '../../../commons/titles';
 import { InputField, CheckboxField } from '../../../commons/forms';
 import { ButtonLoginForm } from '../../../commons/buttons';
+import { pathList } from '../../../../utils/modules';
 import styles from '../loginPages.module.css';
 import { userDataType } from '../../../../types/customType';
 
@@ -31,7 +32,7 @@ const RegistrationPage = () => {
       // регистрация пользователя
       dispatch(fetchRegistration(userRegistrationData));
       // переход по маршруту, на страницу авторизации
-      navigate('/layout_Test_Tasks_R_RT_T/authorization');
+      navigate(pathList.authorization);
       // очищаем поля ввода
       setValueLogin('');
       setValuePassword('');

@@ -1,6 +1,7 @@
 import { useAppSelector } from './redux/hooks';
 import { RootState } from './redux/store';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { pathList } from './utils/modules';
 import {
   HomePage,
   RegistrationPage,
@@ -19,21 +20,18 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/layout_Test_Tasks_R_RT_T' element={<HomePage />} />
+        <Route path={pathList.homePage} element={<HomePage />} />
+        <Route path={pathList.registration} element={<RegistrationPage />} />
         <Route
-          path='/layout_Test_Tasks_R_RT_T/registration'
-          element={<RegistrationPage />}
-        />
-        <Route
-          path='/layout_Test_Tasks_R_RT_T/authorization'
+          path={pathList.authorization}
           element={isLoading ? <Loading /> : <AuthorizationPage />}
         />
         <Route
-          path='/layout_Test_Tasks_R_RT_T/tests-list-page'
+          path={pathList.testsListPage}
           element={isLoading ? <Loading /> : <TestsListPage />}
         />
         <Route
-          path='/layout_Test_Tasks_R_RT_T/error'
+          path={pathList.errorPage}
           element={isLoading ? <Loading /> : <ErrorPage />}
         />
       </Routes>
