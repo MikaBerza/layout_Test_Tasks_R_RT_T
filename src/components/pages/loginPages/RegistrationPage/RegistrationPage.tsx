@@ -1,13 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../../redux/hooks';
-import { fetchRegistration } from '../../../redux/slices/loginFormSlice';
-import { LogoMain } from '../../commons/logos';
-import { TitleLoginForm } from '../../commons/titles';
-import { InputField, CheckboxField } from '../../commons/forms';
-import { ButtonLoginForm } from '../../commons/buttons';
-import styles from './RegistrationPage.module.css';
-import { userDataType } from '../../../types/customType';
+import { useAppDispatch } from '../../../../redux/hooks';
+import { fetchRegistration } from '../../../../redux/slices/loginFormSlice';
+import { LogoMain } from '../../../commons/logos';
+import { TitleLoginForm } from '../../../commons/titles';
+import { InputField, CheckboxField } from '../../../commons/forms';
+import { ButtonLoginForm } from '../../../commons/buttons';
+import styles from '../loginPages.module.css';
+import { userDataType } from '../../../../types/customType';
 
 const RegistrationPage = () => {
   const [valueLogin, setValueLogin] = React.useState('');

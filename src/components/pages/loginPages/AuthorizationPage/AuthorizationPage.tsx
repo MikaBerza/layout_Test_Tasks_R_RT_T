@@ -1,15 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
-import { fetchAuthorization } from '../../../redux/slices/loginFormSlice';
-import { RootState } from '../../../redux/store';
-import { LogoMain } from '../../commons/logos';
-import { TitleLoginForm } from '../../commons/titles';
-import { patternLogo, patternPassword } from '../../../utils/modules';
-import { InputField } from '../../commons/forms';
-import { ButtonLoginForm } from '../../commons/buttons';
-import styles from './AuthorizationPage.module.css';
-import { userDataType } from '../../../types/customType';
+import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
+import { fetchAuthorization } from '../../../../redux/slices/loginFormSlice';
+import { RootState } from '../../../../redux/store';
+import { LogoMain } from '../../../commons/logos';
+import { TitleLoginForm } from '../../../commons/titles';
+import { patternLogo, patternPassword } from '../../../../utils/modules';
+import { InputField } from '../../../commons/forms';
+import { ButtonLoginForm } from '../../../commons/buttons';
+import styles from '../loginPages.module.css';
+import { userDataType } from '../../../../types/customType';
 
 const AuthorizationPage = () => {
   const [valueLogin, setValueLogin] = React.useState('');
