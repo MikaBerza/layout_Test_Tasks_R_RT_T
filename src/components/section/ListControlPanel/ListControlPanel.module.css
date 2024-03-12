@@ -1,0 +1,11 @@
+.wrapper {
+  /* display: grid;
+  grid-template-columns: repeat(2, 50%);
+  align-items: center; */
+  /* display: grid;
+  grid-template-columns: 25% 50% 25%; */
+}
+
+.btn {
+  text-align: end;
+}

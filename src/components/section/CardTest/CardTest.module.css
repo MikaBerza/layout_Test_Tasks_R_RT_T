@@ -1,12 +1,11 @@
 .wrapper {
-  padding: 60px 20px 60px;
+  padding: 60px 0;
 }
 
 .inner {
   position: relative;
   margin-bottom: 30px;
   padding: 20px;
-  background: var(--beige200-color);
   box-shadow: rgba(0, 0, 0, 0.5) 0px -25px 20px -20px;
   border: 3px solid var(--gray6-color);
 }
@@ -43,17 +42,28 @@
 
 .linkBtn:active {
   position: relative;
-  left: 6px;
+  left: 3px;
 }
 
-.arrow {
-  width: 30px;
-  height: 30px;
+.btn {
+  all: unset;
+}
+
+.btn {
+  width: 25px;
+  height: 25px;
   margin: 10px;
-  border-top: 10px solid var(--black2-color);
-  border-right: 10px solid var(--black2-color);
+  border: 10px solid var(--black2-color);
+  border-bottom: 0;
+  border-left: 0;
+  transition: background-color .3s ease, border .3s ease;
   transform: rotate(45deg);
   cursor: pointer;
+}
+
+.btn:hover {
+  border-top: 10px solid var(--gray5-color);
+  border-right: 10px solid var(--gray5-color);
 }
 
 .dateTime {
@@ -81,11 +91,6 @@
 
   .title {
     font-size: 27px;
-  }
-
-  .arrow {
-    width: 25px;
-    height: 25px;
   }
 }
 

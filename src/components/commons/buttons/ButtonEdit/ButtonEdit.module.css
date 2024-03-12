@@ -1,12 +1,25 @@
-.pencel {
+.btn {
+  all: unset;
+}
+
+.btn {
   position: absolute;
   top: 0;
   right: 0;
   width: 40px;
-  padding: 10px;
+  height: 40px;
+  margin: 10px;
+  background-image: url('../../../../assets/images/pencil1.png');
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  transition: background-image .3s ease;
   cursor: pointer;
 }
 
-.pencel:active {
-  top: 4px;
+.btn:hover {
+  background-image: url('../../../../assets/images/pencil2.png');
+}
+
+.btn:active {
+  top: 2px;
 }

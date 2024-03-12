@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
-import { ButtonEdit } from '../buttons';
-import { MinorText } from '../MinorText';
+import { ButtonEdit } from '../../commons/buttons';
+import { MinorText } from '../../commons/MinorText';
 import { listTest } from '../../../utils/listTest';
 import image from '../../../assets/images/test.png';
 import styles from './CardTest.module.css';
@@ -27,7 +27,7 @@ const CardTest = () => {
             <img className={styles.image} src={image} alt='img' />
             <h3 className={styles.title}>{item.title}</h3>
             <Link className={styles.linkBtn} to='#'>
-              <p className={styles.arrow} />
+              <button className={styles.btn} />
             </Link>
           </div>
 

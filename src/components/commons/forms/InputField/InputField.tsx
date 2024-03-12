@@ -31,7 +31,7 @@ const InputField = ({
       <input
         className={styles.input}
         name={name}
-        type={showPassword || type === 'text' ? 'text' : 'password'}
+        type={showPassword ? 'text' : type}
         id={id}
         autoComplete='off'
         placeholder={placeholder}

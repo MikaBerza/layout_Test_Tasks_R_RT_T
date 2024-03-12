@@ -4,7 +4,7 @@ import { useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
 import { Header } from '../../commons/Header';
 import { TitleMain } from '../../commons/titles';
-import { CardTest } from '../../commons/CardTest';
+import { CardTest, ListControlPanel } from '../../section';
 import { Footer } from '../../commons/Footer';
 import styles from './TestsListPage.module.css';
 
@@ -26,6 +26,7 @@ const TestsListPage = () => {
       <Header />
       <main className={styles.wrapper}>
         <TitleMain textTitle='Тесты' />
+        <ListControlPanel />
         <CardTest />
       </main>
       <Footer />

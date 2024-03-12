@@ -1,0 +1,91 @@
+.wrapper {
+  position: relative;
+  max-width: 360px;
+  margin-top: 40px;
+}
+
+.inner {
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.btn {
+  all: unset;
+}
+
+.btn {
+  width: 8px;
+  height: 8px;
+  margin: 8px 8px 12px;
+  border-top: 4px solid var(--black2-color);
+  border-right: 4px solid var(--black2-color);
+  transition: background-color .3s ease, border .3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-top: 4px solid var(--gray5-color);
+  border-right: 4px solid var(--gray5-color);
+}
+
+.btn:active {
+  border-top: 4px solid var(--black2-color);
+  border-right: 4px solid var(--black2-color);
+}
+
+.up {
+  transform: rotate(-45deg);
+}
+
+.down {
+  transform: rotate(135deg)
+}
+
+.right {
+  transform: rotate(45deg)
+}
+
+.label {
+  margin-right: 8px;
+  font-weight: 700;
+}
+
+.dropdownList {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  max-width: 250px;
+  margin: 15px 0 0;
+  padding: 0;
+  background: var(--white1-color);
+  -webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+}
+
+.option {
+  padding: 15px 20px;
+  cursor: pointer
+}
+
+.option:hover {
+  background: rgba(197, 199, 195, 0.15)
+}
+
+.active {
+  font-weight: bold;
+}
+
+@media (max-width: 550px) {
+  .wrapper {
+    margin-top: 20px;
+  }
+
+  .label,
+  .currentOption {
+    font-size: 15px;
+  }
+}
