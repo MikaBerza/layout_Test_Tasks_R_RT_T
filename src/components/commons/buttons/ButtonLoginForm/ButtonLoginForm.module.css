@@ -1,8 +1,7 @@
 .btn {
-  float: right;
   overflow: hidden;
   max-width: 200px;
-  margin-top: 50px;
+  margin-left: auto;
   padding: 12px 22px;
   font-size: 18px;
   text-overflow: ellipsis;
