@@ -13,8 +13,8 @@ const initialState: loginFormType = {
   authorizationsUserData: {},
   isAdmin: false,
   isLoading: false,
+  isError: false,
   errorMessage: {
-    isError: false,
     statusError: '.',
   },
 };
@@ -93,7 +93,7 @@ export const loginFormSlice = createSlice({
       state.isLoading = action.payload;
     },
     setIsError(state, action) {
-      state.errorMessage.isError = action.payload;
+      state.isError = action.payload;
     },
   },
 
@@ -108,16 +108,16 @@ export const loginFormSlice = createSlice({
         state.authorizationsUserData = action.payload;
         // если HTTP-статус ответа не в диапазоне 200-299
         if (action.payload.responseIsSuccessful === false) {
-          state.errorMessage.isError = true;
+          state.isError = true;
           state.errorMessage.statusError = String(action.payload.statusCode);
         } else {
-          state.errorMessage.isError = false;
+          state.isError = false;
           state.errorMessage.statusError = '.';
         }
       })
       .addCase(fetchRegistration.rejected, (state, action) => {
         state.isLoading = false;
-        state.errorMessage.isError = true;
+        state.isError = true;
         console.error('An error occurred:', action.error.message);
       })
       //___управление авторизацией пользователя
@@ -129,17 +129,17 @@ export const loginFormSlice = createSlice({
         state.authorizationsUserData = action.payload;
         // если HTTP-статус ответа не в диапазоне 200-299
         if (action.payload.responseIsSuccessful === false) {
-          state.errorMessage.isError = true;
+          state.isError = true;
           state.errorMessage.statusError = String(action.payload.statusCode);
         } else {
           state.isAdmin = action.payload.data.is_admin;
-          state.errorMessage.isError = false;
+          state.isError = false;
           state.errorMessage.statusError = '.';
         }
       })
       .addCase(fetchAuthorization.rejected, (state, action) => {
         state.isLoading = false;
-        state.errorMessage.isError = true;
+        state.isError = true;
         console.error('An error occurred:', action.error.message);
       });
   },

@@ -75,8 +75,8 @@ export type loginFormType = {
   authorizationsUserData: userDataType | {};
   isAdmin: boolean;
   isLoading: boolean;
+  isError: boolean;
   errorMessage: {
-    isError: boolean;
     statusError: string;
   };
 };

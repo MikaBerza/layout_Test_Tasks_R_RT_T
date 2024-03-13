@@ -11,17 +11,17 @@ import styles from './TestsListPage.module.css';
 import { ButtonCreateTest } from '../../commons/buttons';
 
 const TestsListPage = () => {
-  const { isAdmin, errorMessage } = useAppSelector(
+  const { isAdmin, isError } = useAppSelector(
     (state: RootState) => state.loginFormSlice
   );
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (errorMessage.isError) {
+    if (isError) {
       // переходим по маршруту, на страницу с ошибкой
       navigate(pathList.errorPage);
     }
-  }, [errorMessage.isError, navigate]);
+  }, [isError, navigate]);
 
   return (
     <>

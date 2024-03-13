@@ -18,18 +18,18 @@ import { userDataType } from '../../../../types/customType';
 const AuthorizationPage = () => {
   const [valueLogin, setValueLogin] = React.useState('');
   const [valuePassword, setValuePassword] = React.useState('');
-  const { errorMessage } = useAppSelector(
+  const { isError } = useAppSelector(
     (state: RootState) => state.loginFormSlice
   );
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (errorMessage.isError) {
+    if (isError) {
       // переходим по маршруту, на страницу с ошибкой
       navigate(pathList.errorPage);
     }
-  }, [errorMessage.isError, navigate]);
+  }, [isError, navigate]);
 
   // функция, обработать форму отправки
   const handleFormSubmit = React.useCallback(
