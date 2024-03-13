@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { pathList } from '../../../utils/modules';
 import { Footer } from '../../commons/Footer';
+import { pathList } from '../../../utils/modules';
 import styles from './HomePage.module.css';
 
 const HomePage = () => {

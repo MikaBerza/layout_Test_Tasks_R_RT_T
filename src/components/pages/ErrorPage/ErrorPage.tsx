@@ -1,7 +1,7 @@
 import { useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
-import { Footer } from '../../commons/Footer';
 import { Header } from '../../commons/Header';
+import { Footer } from '../../commons/Footer';
 import styles from './ErrorPage.module.css';
 
 const ErrorPage = () => {
