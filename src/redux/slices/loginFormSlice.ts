@@ -11,7 +11,7 @@ import { token } from '../../utils/modules';
 const initialState: loginFormType = {
   registrationUserData: {},
   authorizationsUserData: {},
-  isAdmin: false,
+  isAdmin: true,
   isLoading: false,
   isError: false,
   errorMessage: {

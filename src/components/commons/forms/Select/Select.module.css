@@ -22,6 +22,7 @@
   border-top: 4px solid var(--black2-color);
   border-right: 4px solid var(--black2-color);
   transition: background-color .3s ease, border .3s ease;
+  transform: rotate(135deg);
   cursor: pointer;
 }
 
@@ -33,14 +34,7 @@
 .btn:active {
   border-top: 4px solid var(--black2-color);
   border-right: 4px solid var(--black2-color);
-}
-
-.up {
-  transform: rotate(-45deg);
-}
-
-.down {
-  transform: rotate(135deg)
+  transform: rotate(45deg)
 }
 
 .right {

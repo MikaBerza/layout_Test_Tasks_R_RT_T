@@ -32,6 +32,11 @@ export type CheckboxFieldPropsType = {
   text: string;
 };
 
+export type SelectPropsType = {
+  label: string;
+  listOptions: string[];
+};
+
 export type ButtonLoginFormPropsType = {
   name: string;
   type: 'submit' | 'reset';

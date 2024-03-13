@@ -13,6 +13,15 @@ export const pathList: pathListType = {
   errorPage: '/home-page/error',
   githubPage: 'https://github.com/MikaBerza',
 };
+// список выбора сортировки
+export const sortSelectionList: string[] = ['старых к новым', 'новых к старым'];
+// список выбора типа вопроса
+export const questionTypeSelectionList: string[] = [
+  'один из списка',
+  'несколько из списка',
+  'численный ответ',
+];
+
 // функция, получить строку параметров запроса
 export const getQueryParametersString = (userData: userDataType) => {
   // URLSearchParam - это интерфейс, определяет служебные методы для работы со строкой запроса URL-адреса

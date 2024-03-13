@@ -1,14 +1,10 @@
 import React from 'react';
 import styles from './Select.module.css';
+import { SelectPropsType } from '../../../../types/customType';
 
-const Select = () => {
+const Select = ({ label, listOptions }: SelectPropsType) => {
   const selectRef = React.useRef<HTMLLIElement>(null);
-  const [selectionList] = React.useState(['старых к новым', 'новых к старым']);
-  const [styleMap] = React.useState({
-    [selectionList[0]]: styles.up,
-    [selectionList[1]]: styles.down,
-  });
-  const [currentIndex, setCurrentIndex] = React.useState(1);
+  const [currentIndex, setCurrentIndex] = React.useState(-1);
   const [currentOptionName, setCurrentOptionName] = React.useState('');
   const [openDropdownList, setOpenDropdownList] = React.useState(false);
 
@@ -33,17 +29,12 @@ const Select = () => {
     []
   );
 
-  // стиль направления стрелки
-  const arrowDirectionStyle = React.useMemo(() => {
-    return styleMap[currentOptionName] || styles.right;
-  }, [currentOptionName, styleMap]);
-
   // выпадающий список
   const dropdownList = React.useMemo(() => {
     return (
       openDropdownList && (
         <ul className={styles.dropdownList}>
-          {selectionList.map((item, index) => {
+          {listOptions.map((item, index) => {
             return (
               <li
                 ref={selectRef}
@@ -62,16 +53,16 @@ const Select = () => {
         </ul>
       )
     );
-  }, [currentIndex, handleSelection, openDropdownList, selectionList]);
+  }, [currentIndex, handleSelection, listOptions, openDropdownList]);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.inner}>
         <button
-          className={`${styles.btn} ${arrowDirectionStyle}`}
+          className={`${styles.btn} ${openDropdownList && styles.right}`}
           onClick={handleDropdownList}
         />
-        <span className={styles.label}>Сортировать от:</span>
+        <span className={styles.label}>{label}</span>
         <span className={styles.currentOption}>{currentOptionName}</span>
       </div>
       {dropdownList}
@@ -80,4 +71,4 @@ const Select = () => {
 };
 
 Select.displayName = 'Select';
-export default Select;
+export default React.memo(Select);
