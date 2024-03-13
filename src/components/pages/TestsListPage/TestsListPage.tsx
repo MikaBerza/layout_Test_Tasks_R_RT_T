@@ -6,10 +6,12 @@ import { Header } from '../../commons/Header';
 import { TitleMain } from '../../commons/titles';
 import { CardTest, ListControlPanel } from '../../section';
 import { Footer } from '../../commons/Footer';
+import { pathList } from '../../../utils/modules';
 import styles from './TestsListPage.module.css';
+import { ButtonCreateTest } from '../../commons/buttons';
 
 const TestsListPage = () => {
-  const { errorMessage } = useAppSelector(
+  const { isAdmin, errorMessage } = useAppSelector(
     (state: RootState) => state.loginFormSlice
   );
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ const TestsListPage = () => {
   React.useEffect(() => {
     if (errorMessage.isError) {
       // переходим по маршруту, на страницу с ошибкой
-      navigate('/layout_Test_Tasks_R_RT_T/error');
+      navigate(pathList.errorPage);
     }
   }, [errorMessage.isError, navigate]);
 
@@ -27,6 +29,7 @@ const TestsListPage = () => {
       <main className={styles.wrapper}>
         <TitleMain textTitle='Тесты' />
         <ListControlPanel />
+        {isAdmin && <ButtonCreateTest patch='#' name='Создать тест' />}
         <CardTest />
       </main>
       <Footer />

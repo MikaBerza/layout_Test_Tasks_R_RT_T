@@ -7,7 +7,7 @@ import { MinorText } from '../../commons/MinorText';
 import { listTest } from '../../../utils/listTest';
 import image from '../../../assets/images/test.png';
 import styles from './CardTest.module.css';
-import { CardTestType } from '../../../types/customType';
+import { CardTestPropsType } from '../../../types/customType';
 
 const CardTest = () => {
   const { isAdmin } = useAppSelector(
@@ -19,7 +19,7 @@ const CardTest = () => {
   в противном случае лишний текст будет скрываться */
 
   const card = React.useCallback(
-    (item: CardTestType) => {
+    (item: CardTestPropsType) => {
       return (
         <div className={styles.inner} key={item.keyId}>
           {isAdmin && <ButtonEdit path='#' />}

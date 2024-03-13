@@ -32,12 +32,17 @@ export type CheckboxFieldPropsType = {
   text: string;
 };
 
-export type ButtonLoginFormType = {
+export type ButtonLoginFormPropsType = {
   name: string;
   type: 'submit' | 'reset';
 };
 
-export type CardTestType = {
+export type ButtonCreateTestPropsType = {
+  patch: string;
+  name: string;
+};
+
+export type CardTestPropsType = {
   keyId: string;
   title: string;
   dateTime: string;

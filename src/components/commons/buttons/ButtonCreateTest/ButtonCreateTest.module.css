@@ -1,0 +1,37 @@
+.linkBtn {
+  display: block;
+  max-width: 90px;
+  margin-left: auto;
+  padding: 5px;
+}
+
+.btn {
+  all: unset;
+}
+
+.btn {
+  width: 80px;
+  height: 80px;
+  padding: 5px;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0.7px;
+  color: var(--white1-color);
+  background-color: var(--green1-color);
+  box-shadow: var(--green1-color) 0px 0px 0px 1px, rgb(255, 255, 255) 10px -10px 10px -1px, rgb(23%, 53%, 26%) 10px -10px, rgb(255, 255, 255) 20px -20px 20px -1px, rgb(23%, 53%, 26%) 20px -20px;
+  border: 1px solid var(--green1-color);
+  border-radius: 50%;
+  transition: background-color .3s ease, border .3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--green2-color);
+  box-shadow: var(--green2-color) 0px 0px 0px 1px, rgb(255, 255, 255) 10px -10px 2px -1px, rgb(30%, 49%, 32%) 10px -10px, rgb(255, 255, 255) 20px -20px 4px -1px, rgb(30%, 49%, 32%) 20px -20px;
+  border: 1px solid var(--green2-color);
+}
+
+.btn:active {
+  box-shadow: var(--green2-color) 0px 0px 0px 1px, rgb(255, 255, 255) 10px -10px 10px -1px, rgb(30%, 49%, 32%) 10px -10px;
+  transform: translate3d(5px, -5px, 5px);
+}

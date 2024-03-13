@@ -5,15 +5,10 @@ import styles from './ListControlPanel.module.css';
 
 const ListControlPanel = () => {
   return (
-    <div>
-      <div className={styles.wrapper}>
-        <div className={styles.btn}>
-          <button>Создать тест</button>
-        </div>
-        <Search />
-        <Select />
-      </div>
-    </div>
+    <section className={styles.wrapper}>
+      <Search />
+      <Select />
+    </section>
   );
 };
 

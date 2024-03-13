@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './ButtonLoginForm.module.css';
-import { ButtonLoginFormType } from '../../../../types/customType';
+import { ButtonLoginFormPropsType } from '../../../../types/customType';
 
-const ButtonLoginForm = ({ name, type }: ButtonLoginFormType) => {
+const ButtonLoginForm = ({ name, type }: ButtonLoginFormPropsType) => {
   return (
     <button className={styles.btn} type={type}>
       {name}
