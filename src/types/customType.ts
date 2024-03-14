@@ -5,6 +5,7 @@ export type pathListType = {
   registration: string;
   authorization: string;
   testsListPage: string;
+  testPage: string;
   errorPage: string;
   githubPage: string;
 };

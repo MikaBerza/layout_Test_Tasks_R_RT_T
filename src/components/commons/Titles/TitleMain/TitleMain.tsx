@@ -1,7 +1,7 @@
 import styles from './TitleMain.module.css';
 
-const TitleMain = ({ textTitle }: { textTitle: string }) => {
-  return <h1 className={styles.title}>{textTitle}</h1>;
+const TitleMain = ({ title }: { title: string }) => {
+  return <h1 className={styles.title}>{title}</h1>;
 };
 
 TitleMain.displayName = 'TitleMain';

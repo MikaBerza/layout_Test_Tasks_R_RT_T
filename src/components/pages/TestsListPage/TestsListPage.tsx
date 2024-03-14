@@ -27,7 +27,7 @@ const TestsListPage = () => {
     <>
       <Header />
       <main className={styles.wrapper}>
-        <TitleMain textTitle='Тесты' />
+        <TitleMain title='Тесты' />
         <ListControlPanel />
         {isAdmin && <ButtonCreateTest patch='#' name='Создать тест' />}
         <CardTest />

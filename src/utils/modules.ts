@@ -10,6 +10,7 @@ export const pathList: pathListType = {
   registration: '/home-page/registration',
   authorization: '/home-page/authorization',
   testsListPage: '/home-page/tests-list-page',
+  testPage: '/home-page/tests-list-page/test-page',
   errorPage: '/home-page/error',
   githubPage: 'https://github.com/MikaBerza',
 };

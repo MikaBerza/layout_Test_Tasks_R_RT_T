@@ -7,6 +7,7 @@ import {
   RegistrationPage,
   AuthorizationPage,
   TestsListPage,
+  TestPage,
   ErrorPage,
 } from './components/pages';
 import { Loading } from './components/commons/Loading';
@@ -29,6 +30,10 @@ function App() {
         <Route
           path={pathList.testsListPage}
           element={isLoading ? <Loading /> : <TestsListPage />}
+        />
+        <Route
+          path={pathList.testPage}
+          element={isLoading ? <Loading /> : <TestPage />}
         />
         <Route
           path={pathList.errorPage}
