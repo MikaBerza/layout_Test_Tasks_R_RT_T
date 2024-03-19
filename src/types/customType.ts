@@ -105,6 +105,7 @@ export type LoginFormInitialStateType = {
   errorMessage: {
     statusError: string;
   };
+  currentUser: any;
   //
   isLoading: boolean;
   isError: boolean;

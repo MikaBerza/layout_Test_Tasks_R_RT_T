@@ -1,7 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
-import { fetchAuthorization } from '../../../../redux/slices/loginFormSlice';
+import {
+  fetchAuthorization,
+  fetchGetCurrentUser,
+} from '../../../../redux/slices/loginFormSlice';
 import { RootState } from '../../../../redux/store';
 import { LogoMain } from '../../../commons/logos';
 import { TitleLoginForm } from '../../../commons/titles';
@@ -47,6 +50,8 @@ const AuthorizationPage = () => {
       // очищаем поля ввода
       setValueLogin('');
       setValuePassword('');
+      // получаем текущего пользователя после авторизации
+      dispatch(fetchGetCurrentUser());
     },
     [dispatch, navigate, valueLogin, valuePassword]
   );

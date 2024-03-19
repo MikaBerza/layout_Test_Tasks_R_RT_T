@@ -15,6 +15,7 @@ const initialState: LoginFormInitialStateType = {
   errorMessage: {
     statusError: '.',
   },
+  currentUser: '',
   //
   isLoading: false,
   isError: false,
@@ -86,6 +87,32 @@ export const fetchAuthorization = createAsyncThunk(
   }
 );
 
+// получить текущего пользователя
+export const fetchGetCurrentUser = createAsyncThunk(
+  'loginForm/fetchGetCurrentUser',
+  async () => {
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    // после задержки, выполняем запрос на сервер
+    const response = await fetch(
+      'https://interns-test-fe.snp.agency/api/v1/users/current',
+      {
+        headers: {
+          'scope-key': token,
+        },
+      }
+    );
+
+    const data: ResponseUserDataType = await response.json();
+    const responseData: ResponseDataType = {
+      data,
+      responseIsSuccessful: response.ok,
+      statusCode: response.status,
+    };
+    console.log('получить текущего пользователя=', responseData);
+    return responseData;
+  }
+);
+
 export const loginFormSlice = createSlice({
   name: 'loginForm',
   initialState,
@@ -104,6 +131,10 @@ export const loginFormSlice = createSlice({
     },
     setIsError(state, action) {
       state.isError = action.payload;
+    },
+    //
+    setCurrentUser(state, action) {
+      state.currentUser = action.payload;
     },
     //
     setTestListItemData(state, action) {
@@ -154,6 +185,19 @@ export const loginFormSlice = createSlice({
       .addCase(fetchAuthorization.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
+        console.error('An error occurred:', action.error.message);
+      })
+      //___управление получением текущего пользователя
+      .addCase(fetchGetCurrentUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchGetCurrentUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.currentUser = action.payload;
+      })
+      .addCase(fetchGetCurrentUser.rejected, (state, action) => {
+        state.isLoading = false;
+        // state.isError = true;
         console.error('An error occurred:', action.error.message);
       });
   },
