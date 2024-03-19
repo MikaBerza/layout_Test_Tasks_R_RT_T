@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './TitleMain.module.css';
 
 const TitleMain = ({ title }: { title: string }) => {
@@ -5,4 +6,4 @@ const TitleMain = ({ title }: { title: string }) => {
 };
 
 TitleMain.displayName = 'TitleMain';
-export default TitleMain;
+export default React.memo(TitleMain);

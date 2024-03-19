@@ -4,11 +4,11 @@ import { useAppDispatch } from '../../../../redux/hooks';
 import { fetchRegistration } from '../../../../redux/slices/loginFormSlice';
 import { LogoMain } from '../../../commons/logos';
 import { TitleLoginForm } from '../../../commons/titles';
-import { InputField, CheckboxField } from '../../../commons/forms';
+import { InputField, Checkbox } from '../../../commons/forms';
 import { ButtonLoginForm } from '../../../commons/buttons';
 import { pathList } from '../../../../utils/modules';
 import styles from '../loginPages.module.css';
-import { userDataType } from '../../../../types/customType';
+import { UserDataType } from '../../../../types/customType';
 
 const RegistrationPage = () => {
   const [valueLogin, setValueLogin] = React.useState('');
@@ -23,7 +23,7 @@ const RegistrationPage = () => {
     (event: React.FormEvent) => {
       event.preventDefault();
       // данные регистрации пользователя
-      const userRegistrationData: userDataType = {
+      const userRegistrationData: UserDataType = {
         username: valueLogin,
         password: valuePassword,
         password_confirmation: valueConfirmPassword,
@@ -87,9 +87,7 @@ const RegistrationPage = () => {
           onChange={(e) => setValueConfirmPassword(e.target.value)}
           value={valueConfirmPassword}
         />
-        <CheckboxField
-          name='registrationCheckbox'
-          type='checkbox'
+        <Checkbox
           id='registrationCheckbox'
           onChange={(e) => setIsAdmin(e.target.checked)}
           checked={isAdmin}

@@ -13,7 +13,7 @@ import {
   patternPassword,
 } from '../../../../utils/modules';
 import styles from '../loginPages.module.css';
-import { userDataType } from '../../../../types/customType';
+import { UserDataType } from '../../../../types/customType';
 
 const AuthorizationPage = () => {
   const [valueLogin, setValueLogin] = React.useState('');
@@ -36,7 +36,7 @@ const AuthorizationPage = () => {
     (event: React.FormEvent) => {
       event.preventDefault();
       // данные авторизации пользователя
-      const userAuthorizationData: userDataType = {
+      const userAuthorizationData: UserDataType = {
         username: valueLogin,
         password: valuePassword,
       };

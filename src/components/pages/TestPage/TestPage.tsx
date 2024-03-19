@@ -1,44 +1,70 @@
 import React from 'react';
+import { RootState } from '../../../redux/store';
+import { useAppSelector } from '../../../redux/hooks';
 import { Header } from '../../commons/Header';
 import { TitleMain } from '../../commons/titles';
+import { RadioGroup } from '../../section';
 import { Footer } from '../../commons/Footer';
 import styles from './TestPage.module.css';
-//
-const TestPage = () => {
-  const [selectedAnswer, setSelectedAnswer] = React.useState('');
 
-  const handleFormSubmit = (event: any) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const answer: any = formData.get('radio');
-    setSelectedAnswer(answer);
-  };
+const TestPage = () => {
+  // данные элемента списка тестов
+  const { testListItemData } = useAppSelector(
+    (state: RootState) => state.loginFormSlice
+  );
+  // количество вопросов
+  const [numberOfQuestions] = React.useState(testListItemData.test.length - 1);
+  // текущий номер вопроса
+  const [currentQuestionNumber, setCurrentQuestionNumber] = React.useState(0);
+  // массив ответов пользователя
+  const [userAnswersArray, setUserAnswersArray] = React.useState([]);
+  // количество верных ответов
+  const [numberOfCorrectAnswers, setNumberOfCorrectAnswers] = React.useState(0);
+  // тест завершен
+  const [testFinished, setTestFinished] = React.useState(false);
+
+  // блок данных теста (вопрос, варианты ответов, правильный ответ)
+  const testDataBlock = React.useMemo(() => {
+    return {
+      question: testListItemData.test[currentQuestionNumber].question,
+      answersOptions:
+        testListItemData.test[currentQuestionNumber].answersOptions,
+      rightAnswer: testListItemData.test[currentQuestionNumber].rightAnswer,
+    };
+  }, [currentQuestionNumber, testListItemData.test]);
+
+  // показать результат теста
+  const showResultTest = React.useMemo(() => {
+    if (testFinished) {
+      const result = userAnswersArray.reduce((sum, elem) => sum + elem, 0);
+      setNumberOfCorrectAnswers(result);
+      return <h2>Количество верных ответов: {numberOfCorrectAnswers}</h2>;
+    }
+  }, [numberOfCorrectAnswers, testFinished, userAnswersArray]);
 
   return (
     <>
       <Header />
       <main className={styles.wrapper}>
         <TitleMain title='Тест' />
-
-        <form onSubmit={handleFormSubmit}>
-          <fieldset>
-            <legend>Вопрос</legend>
-            <label>
-              <input type='radio' name='radio' value='1' /> Ответ 1
-            </label>
-            <label>
-              <input type='radio' name='radio' value='2' /> Ответ 2
-            </label>
-            <label>
-              <input type='radio' name='radio' value='3' /> Ответ 3
-            </label>
-            <label>
-              <input type='radio' name='radio' value='4' /> Ответ 4
-            </label>
-            <button type='submit'>Submit</button>
-          </fieldset>
-          {selectedAnswer && <p>Выбранный ответ: {selectedAnswer}</p>}
-        </form>
+        {testFinished && showResultTest}
+        <div className={styles.inner} key={testListItemData.id}>
+          <h3 className={styles.title}>{testListItemData.title}</h3>
+          <RadioGroup
+            question={testDataBlock.question}
+            answersOptions={testDataBlock.answersOptions}
+            rightAnswer={testDataBlock.rightAnswer}
+            //
+            numberOfQuestions={numberOfQuestions}
+            currentQuestionNumber={currentQuestionNumber}
+            setCurrentQuestionNumber={setCurrentQuestionNumber}
+            //
+            userAnswersArray={userAnswersArray}
+            setUserAnswersArray={setUserAnswersArray}
+            //
+            setTestFinished={setTestFinished}
+          />
+        </div>
       </main>
       <Footer />
     </>
@@ -46,4 +72,4 @@ const TestPage = () => {
 };
 
 TestPage.displayName = 'TestPage';
-export default TestPage;
+export default React.memo(TestPage);

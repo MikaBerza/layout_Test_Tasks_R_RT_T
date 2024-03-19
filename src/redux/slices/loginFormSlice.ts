@@ -1,28 +1,38 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {
-  userDataType,
-  responseUserDataType,
-  responseDataType,
-  loginFormType,
+  UserDataType,
+  ResponseUserDataType,
+  ResponseDataType,
+  LoginFormInitialStateType,
 } from '../../types/customType';
 import { token } from '../../utils/modules';
 
 // начальное состояние
-const initialState: loginFormType = {
+const initialState: LoginFormInitialStateType = {
   registrationUserData: {},
   authorizationsUserData: {},
-  isAdmin: true,
-  isLoading: false,
-  isError: false,
+  isAdmin: false,
   errorMessage: {
     statusError: '.',
+  },
+  //
+  isLoading: false,
+  isError: false,
+  //
+  testListData: [],
+  testListItemData: {
+    id: '',
+    title: '',
+    questionType: '',
+    test: [],
+    dateTime: '',
   },
 };
 
 // регистрация
 export const fetchRegistration = createAsyncThunk(
   'loginForm/fetchRegistration',
-  async (userData: userDataType) => {
+  async (userData: UserDataType) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     // после задержки, выполняем отправку данных на сервер
     const response = await fetch(
@@ -36,13 +46,13 @@ export const fetchRegistration = createAsyncThunk(
         body: JSON.stringify(userData),
       }
     );
-    const data: responseUserDataType = await response.json();
-    const responseData: responseDataType = {
+    const data: ResponseUserDataType = await response.json();
+    const responseData: ResponseDataType = {
       data,
       responseIsSuccessful: response.ok,
       statusCode: response.status,
     };
-    // console.log(responseData);
+    console.log('регистрация', responseData);
     return responseData;
   }
 );
@@ -50,7 +60,7 @@ export const fetchRegistration = createAsyncThunk(
 // авторизация
 export const fetchAuthorization = createAsyncThunk(
   'loginForm/fetchAuthorization',
-  async (userData: userDataType) => {
+  async (userData: UserDataType) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     // после задержки, выполняем отправку данных на сервер
     const response = await fetch(
@@ -65,13 +75,13 @@ export const fetchAuthorization = createAsyncThunk(
       }
     );
 
-    const data: responseUserDataType = await response.json();
-    const responseData: responseDataType = {
+    const data: ResponseUserDataType = await response.json();
+    const responseData: ResponseDataType = {
       data,
       responseIsSuccessful: response.ok,
       statusCode: response.status,
     };
-    // console.log(responseData);
+    console.log('авторизация=', responseData);
     return responseData;
   }
 );
@@ -94,6 +104,10 @@ export const loginFormSlice = createSlice({
     },
     setIsError(state, action) {
       state.isError = action.payload;
+    },
+    //
+    setTestListItemData(state, action) {
+      state.testListItemData = action.payload;
     },
   },
 
@@ -145,6 +159,9 @@ export const loginFormSlice = createSlice({
   },
 });
 
-export const { setRegistrationUserData, setAuthorizationUserData } =
-  loginFormSlice.actions;
+export const {
+  setRegistrationUserData,
+  setAuthorizationUserData,
+  setTestListItemData,
+} = loginFormSlice.actions;
 export default loginFormSlice.reducer;

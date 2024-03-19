@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 26px;
+}
+
+.radio[type=radio] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.radio+.switch {
+  user-select: none;
+  cursor: pointer;
+}
+
+.radio+.switch::before {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 22px;
+  height: 22px;
+  margin-right: 19px;
+  text-align: center;
+  border: 1px solid var(--gray2-color);
+  border-radius: 50%;
+  content: '';
+}
+
+.radio:checked+.switch::before {
+  box-sizing: border-box;
+  position: relative;
+  background-color: white;
+  border-width: 11px;
+  border-style: double;
+  border-color: var(--black2-color);
+  border-radius: 50%;
+  content: '';
+}
+
+.text {
+  overflow: hidden;
+  max-width: 220px;
+  margin: 0;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 142%;
+  white-space: nowrap;
+  letter-spacing: -0.17px;
+  text-overflow: ellipsis;
+}
