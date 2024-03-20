@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "engines": {
-    "node": ">=18.6.1 <18.18.0"
+    "node": ">=18.6.1 <=18.18.0"
   },
   "private": true,
   "homepage": "https://localhost:3000/home-page/",
