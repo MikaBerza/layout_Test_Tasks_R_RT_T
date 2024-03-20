@@ -1,8 +1,8 @@
 import React from 'react';
 import { Radio } from '../../commons/forms';
-import styles from './RadioGroup.module.css';
+import styles from './OneFromTheList.module.css';
 
-const RadioGroup = ({
+const OneFromTheList = ({
   question,
   answersOptions,
   rightAnswer,
@@ -110,5 +110,5 @@ const RadioGroup = ({
   );
 };
 
-RadioGroup.displayName = 'RadioGroup';
-export default React.memo(RadioGroup);
+OneFromTheList.displayName = 'OneFromTheList';
+export default React.memo(OneFromTheList);

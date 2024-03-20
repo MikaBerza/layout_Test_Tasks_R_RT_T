@@ -3,7 +3,7 @@ import { RootState } from '../../../redux/store';
 import { useAppSelector } from '../../../redux/hooks';
 import { Header } from '../../commons/Header';
 import { TitleMain } from '../../commons/titles';
-import { RadioGroup } from '../../section';
+import { OneFromTheList } from '../../section';
 import { Footer } from '../../commons/Footer';
 import styles from './TestPage.module.css';
 
@@ -50,7 +50,7 @@ const TestPage = () => {
         {testFinished && showResultTest}
         <div className={styles.inner} key={testListItemData.id}>
           <h3 className={styles.title}>{testListItemData.title}</h3>
-          <RadioGroup
+          <OneFromTheList
             question={testDataBlock.question}
             answersOptions={testDataBlock.answersOptions}
             rightAnswer={testDataBlock.rightAnswer}
