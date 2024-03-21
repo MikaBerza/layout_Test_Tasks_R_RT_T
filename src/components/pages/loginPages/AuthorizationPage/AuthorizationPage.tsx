@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
 import {
   fetchAuthorization,
   fetchGetCurrentUser,
+  fetchGetListOfTests,
 } from '../../../../redux/slices/loginFormSlice';
 import { RootState } from '../../../../redux/store';
 import { LogoMain } from '../../../commons/logos';
@@ -16,6 +17,7 @@ import {
   patternPassword,
 } from '../../../../utils/modules';
 import styles from '../loginPages.module.css';
+import { listTest } from '../../../../utils/listTest';
 import { UserDataType } from '../../../../types/customType';
 
 const AuthorizationPage = () => {
@@ -45,6 +47,8 @@ const AuthorizationPage = () => {
       };
       // авторизация пользователя
       dispatch(fetchAuthorization(userAuthorizationData));
+      // получаем список тестов
+      dispatch(fetchGetListOfTests(listTest));
       // переход по маршруту, на страницу со списком тестов
       navigate(pathList.testsListPage);
       // очищаем поля ввода

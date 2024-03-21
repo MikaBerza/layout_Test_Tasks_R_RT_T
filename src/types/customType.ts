@@ -66,14 +66,6 @@ export type ButtonModalPropsType = {
 };
 
 //
-export type CardTestPropsType = {
-  id: string;
-  title: string;
-  dateTime: string;
-  thePathToEdit?: string;
-  pathToTest?: string;
-};
-
 export type ModalWindowPropsType = {
   title: string;
   content: string;

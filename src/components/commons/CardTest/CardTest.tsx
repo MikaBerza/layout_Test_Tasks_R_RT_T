@@ -5,16 +5,15 @@ import { setTestListItemData } from '../../../redux/slices/loginFormSlice';
 import { ButtonEdit } from '../buttons';
 import { ModalWindow } from '../ModalWindow';
 import { MinorText } from '../MinorText';
-
 import image from '../../../assets/images/test.png';
 import styles from './CardTest.module.css';
-import { CardTestPropsType } from '../../../types/customType';
+import { TestDataItemPropsType } from '../../../types/customType';
 
 const CardTest = ({
   item,
   index,
 }: {
-  item: CardTestPropsType;
+  item: TestDataItemPropsType;
   index: number;
 }) => {
   const [modalIsActive, setModalIsActive] = React.useState(false);
@@ -23,16 +22,19 @@ const CardTest = ({
     (state: RootState) => state.loginFormSlice
   );
 
+  // обработать открытие модального окна
+  const handleOpenTheModalWindow = React.useCallback(() => {
+    // открываем модальное окно
+    setModalIsActive(true);
+  }, []);
+
   // функция, обработать переход к тесту
-  const handleTransitionToTest = React.useCallback(
-    (testListItemData: CardTestPropsType) => {
-      // открываем модальное окно
-      setModalIsActive(true);
-      // получаем элемент из списка тестов
-      dispatch(setTestListItemData(testListItemData));
-    },
-    [dispatch]
-  );
+  const handleTransitionToTest = React.useCallback(() => {
+    // получаем элемент из списка тестов
+    dispatch(setTestListItemData(item));
+    // закрываем модальное окно
+    setModalIsActive(false);
+  }, [dispatch, item]);
 
   // функция, обработать закрытие модального окна
   const handleClosingTheModalWindow = React.useCallback(() => {
@@ -49,12 +51,12 @@ const CardTest = ({
         {
           nameBtn: 'Подтвердить',
           link: `/home-page/tests-list-page/test-page/${index + 1}`,
-          onClick: handleClosingTheModalWindow,
+          onClick: handleTransitionToTest,
         },
         { nameBtn: 'Отмена', onClick: handleClosingTheModalWindow },
       ],
     }),
-    [item.title, index, handleClosingTheModalWindow]
+    [item.title, index, handleTransitionToTest, handleClosingTheModalWindow]
   );
 
   return (
@@ -63,15 +65,12 @@ const CardTest = ({
       <div className={styles.content}>
         <img className={styles.image} src={image} alt='img' />
         <h3 className={styles.title}>{item.title}</h3>
-        <button
-          className={styles.btn}
-          onClick={() => handleTransitionToTest(item)}
-        />
+        <button className={styles.btn} onClick={handleOpenTheModalWindow} />
+        {modalIsActive && <ModalWindow {...modalWindowData} />}
       </div>
       <div className={styles.dateTime}>
         <MinorText str={item.dateTime} />
       </div>
-      {modalIsActive && <ModalWindow {...modalWindowData} />}
     </div>
   );
 };

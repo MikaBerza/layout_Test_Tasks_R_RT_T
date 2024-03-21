@@ -4,6 +4,7 @@ import {
   ResponseUserDataType,
   ResponseDataType,
   LoginFormInitialStateType,
+  TestDataItemPropsType,
 } from '../../types/customType';
 import { token } from '../../utils/modules';
 
@@ -113,6 +114,15 @@ export const fetchGetCurrentUser = createAsyncThunk(
   }
 );
 
+// получение списка тестов
+export const fetchGetListOfTests = createAsyncThunk(
+  'loginForm/fetchGetListOfTests',
+  async (testListData: TestDataItemPropsType[]) => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    return testListData;
+  }
+);
+
 export const loginFormSlice = createSlice({
   name: 'loginForm',
   initialState,
@@ -137,6 +147,9 @@ export const loginFormSlice = createSlice({
       state.currentUser = action.payload;
     },
     //
+    setTestListData(state, action) {
+      state.testListData = action.payload;
+    },
     setTestListItemData(state, action) {
       state.testListItemData = action.payload;
     },
@@ -198,6 +211,19 @@ export const loginFormSlice = createSlice({
       .addCase(fetchGetCurrentUser.rejected, (state, action) => {
         state.isLoading = false;
         // state.isError = true;
+        console.error('An error occurred:', action.error.message);
+      })
+      //___управление получением тестов
+      .addCase(fetchGetListOfTests.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchGetListOfTests.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.testListData = action.payload;
+      })
+      .addCase(fetchGetListOfTests.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
         console.error('An error occurred:', action.error.message);
       });
   },
