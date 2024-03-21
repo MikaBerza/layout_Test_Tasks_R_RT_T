@@ -54,12 +54,30 @@ export type ButtonCreateTestPropsType = {
   name: string;
 };
 
+export type ButtonModalPropsType = {
+  nameBtn: string;
+  onClick?: (
+    event:
+      | React.MouseEvent<HTMLButtonElement>
+      | React.FormEvent<HTMLFormElement>
+      | React.MouseEvent<HTMLAnchorElement>
+  ) => void;
+  link?: string | null;
+};
+
+//
 export type CardTestPropsType = {
   id: string;
   title: string;
   dateTime: string;
   thePathToEdit?: string;
   pathToTest?: string;
+};
+
+export type ModalWindowPropsType = {
+  title: string;
+  content: string;
+  modalButtonData: ButtonModalPropsType[];
 };
 
 // Типы, для loginFormSlice

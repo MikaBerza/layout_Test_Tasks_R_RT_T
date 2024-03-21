@@ -1,0 +1,25 @@
+.title {
+  overflow: hidden;
+  margin: 0 auto;
+  font-size: 28px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  color: var(--black1-color);
+}
+
+/*1024px___________________________________________________*/
+@media (max-width: 1024px) {
+
+  .title {
+    font-size: 24px;
+  }
+}
+
+/*550px___________________________________________________*/
+@media (max-width: 550px) {
+
+  .title {
+    font-size: 22px;
+  }
+
+}

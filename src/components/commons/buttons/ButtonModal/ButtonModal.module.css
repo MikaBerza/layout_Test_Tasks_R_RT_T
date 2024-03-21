@@ -1,0 +1,46 @@
+.btn {
+  align-items: center;
+  padding: 18px 30px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--white1-color);
+  background: var(--orange1-color);
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--orange2-color);
+  cursor: pointer;
+}
+
+.btn:active {
+  background: var(--orange3-color);
+}
+
+/*1024px___________________________________________________*/
+@media (max-width: 1024px) {
+
+  .btn {
+    font-size: 20px;
+  }
+}
+
+/*550px___________________________________________________*/
+@media (max-width: 550px) {
+
+  .btn {
+    padding: 14px 29px;
+    font-size: 16px;
+  }
+}
+
+/*359px___________________________________________________*/
+@media (max-width: 359px) {
+
+  .btn {
+    padding: 12px 12px;
+    font-size: 14px;
+  }
+}

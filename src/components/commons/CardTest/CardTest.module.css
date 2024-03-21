@@ -1,8 +1,4 @@
-.wrapper {
-  padding: 60px 0;
-}
-
-.inner {
+.container {
   position: relative;
   margin-bottom: 30px;
   padding: 20px;
@@ -10,7 +6,7 @@
   border: 3px solid var(--gray6-color);
 }
 
-.inner::before {
+.container::before {
   position: absolute;
   top: calc(100% - 57px);
   right: -3px;
@@ -34,15 +30,11 @@
 }
 
 .title {
+  width: 90%;
   max-height: 120px;
   margin: 0 auto 0 0;
   font-size: 34px;
   font-weight: 500;
-}
-
-.linkBtn:active {
-  position: relative;
-  left: 3px;
 }
 
 .btn {
@@ -66,6 +58,11 @@
   border-right: 10px solid var(--gray5-color);
 }
 
+.btn:active {
+  position: relative;
+  left: 3px;
+}
+
 .dateTime {
   display: flex;
   align-items: center;
@@ -81,7 +78,7 @@
 
 /*1024px___________________________________________________*/
 @media (max-width: 1024px) {
-  .inner {
+  .container {
     padding: 10px;
   }
 

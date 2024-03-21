@@ -52,7 +52,7 @@
   --gray4-color: #F1F3F2;
   --gray5-color: #464544;
   --gray6-color: #f7f7f7;
-
+  --gray7-color: #d9dfdb;
 
   --black1-color: #1B1F2B;
   --black2-color: black;
@@ -63,9 +63,14 @@
 
   --red1-color: tomato;
 
+  --orange1-color: #ebb032;
+  --orange2-color: #EFA501;
+  --orange3-color: #ffaf02;
+
   --green1-color: #335b38;
   --green2-color: #4c7e52;
 
+  --beige1-color: #fff9ee;
 }
 
 #root {

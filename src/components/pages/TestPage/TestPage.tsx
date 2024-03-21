@@ -2,7 +2,7 @@ import React from 'react';
 import { RootState } from '../../../redux/store';
 import { useAppSelector } from '../../../redux/hooks';
 import { Header } from '../../commons/Header';
-import { TitleMain } from '../../commons/titles';
+import { MainTitle } from '../../commons/titles';
 import { OneFromTheList } from '../../section';
 import { Footer } from '../../commons/Footer';
 import styles from './TestPage.module.css';
@@ -46,7 +46,7 @@ const TestPage = () => {
     <>
       <Header />
       <main className={styles.wrapper}>
-        <TitleMain title='Тест' />
+        <MainTitle title='Тест' />
         {testFinished && showResultTest}
         <div className={styles.inner} key={testListItemData.id}>
           <h3 className={styles.title}>{testListItemData.title}</h3>

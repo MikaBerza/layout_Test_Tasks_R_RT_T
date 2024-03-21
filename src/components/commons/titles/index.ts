@@ -1,2 +1,2 @@
-export { default as TitleLoginForm } from './TitleLoginForm/TitleLoginForm';
-export { default as TitleMain } from './TitleMain/TitleMain';
+export { default as MiddleTitle } from './MiddleTitle/MiddleTitle';
+export { default as MainTitle } from './MainTitle/MainTitle';

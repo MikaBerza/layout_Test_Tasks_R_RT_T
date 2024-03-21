@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
 import { Header } from '../../commons/Header';
-import { TitleMain } from '../../commons/titles';
-import { CardTest, ListControlPanel } from '../../section';
+import { MainTitle } from '../../commons/titles';
+import { CardsList, ListControlPanel } from '../../section';
 import { Footer } from '../../commons/Footer';
 import { pathList } from '../../../utils/modules';
 import styles from './TestsListPage.module.css';
@@ -27,10 +27,10 @@ const TestsListPage = () => {
     <>
       <Header />
       <main className={styles.wrapper}>
-        <TitleMain title='Тесты' />
+        <MainTitle title='Тесты' />
         <ListControlPanel />
         {isAdmin && <ButtonCreateTest patch='#' name='Создать тест' />}
-        <CardTest />
+        <CardsList />
       </main>
       <Footer />
     </>
