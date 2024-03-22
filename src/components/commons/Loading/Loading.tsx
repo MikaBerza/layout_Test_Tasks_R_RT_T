@@ -4,7 +4,7 @@ import styles from './Loading.module.css';
 const Loading = () => {
   return (
     <div className={styles.loading}>
-      <BounceLoader size={100} color='#ffca4f' />
+      <BounceLoader size={100} color='#A6A6A6' />
     </div>
   );
 };
