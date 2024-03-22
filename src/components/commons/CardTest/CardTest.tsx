@@ -22,7 +22,7 @@ const CardTest = ({
     (state: RootState) => state.loginFormSlice
   );
 
-  // обработать открытие модального окна
+  // функция, обработать открытие модального окна
   const handleOpenTheModalWindow = React.useCallback(() => {
     // открываем модальное окно
     setModalIsActive(true);
