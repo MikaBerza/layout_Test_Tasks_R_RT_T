@@ -8,7 +8,7 @@ import {
 } from '../../../../redux/slices/loginFormSlice';
 import { RootState } from '../../../../redux/store';
 import { LogoMain } from '../../../commons/logos';
-import { MiddleTitle } from '../../../commons/titles';
+import { MediumTitle } from '../../../commons/titles';
 import { InputField } from '../../../commons/forms';
 import { ButtonLoginForm } from '../../../commons/buttons';
 import {
@@ -64,7 +64,7 @@ const AuthorizationPage = () => {
     <main className={styles.wrapper}>
       <form className={styles.inner} onSubmit={handleFormSubmit}>
         <LogoMain />
-        <MiddleTitle title='Авторизация' />
+        <MediumTitle title='Авторизация' />
         <InputField
           name='authorizationLogin'
           type='text'

@@ -4,8 +4,10 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { setTestListItemData } from '../../../redux/slices/loginFormSlice';
 import { ButtonEdit } from '../buttons';
 import { ModalWindow } from '../ModalWindow';
+import { MediumTitle } from '../titles';
 import { MinorText } from '../MinorText';
 import image from '../../../assets/images/test.png';
+import { pathList } from '../../../utils/modules';
 import styles from './CardTest.module.css';
 import { TestDataItemPropsType } from '../../../types/customType';
 
@@ -50,7 +52,7 @@ const CardTest = ({
       modalButtonData: [
         {
           nameBtn: 'Подтвердить',
-          link: `/home-page/tests-list-page/test-page/${index + 1}`,
+          link: `${pathList.testPage}${index + 1}`,
           onClick: handleTransitionToTest,
         },
         { nameBtn: 'Отмена', onClick: handleClosingTheModalWindow },
@@ -64,7 +66,7 @@ const CardTest = ({
       {isAdmin && <ButtonEdit path='#' />}
       <div className={styles.content}>
         <img className={styles.image} src={image} alt='img' />
-        <h3 className={styles.title}>{item.title}</h3>
+        <MediumTitle title={item.title} cN='titleV2' />
         <button className={styles.btn} onClick={handleOpenTheModalWindow} />
         {modalIsActive && <ModalWindow {...modalWindowData} />}
       </div>

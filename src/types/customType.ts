@@ -92,19 +92,23 @@ export type ResponseDataType = {
   statusCode: number;
 };
 
+export type AnswersOptionsType = {
+  id: string;
+  value: string;
+  answer: string;
+};
+
+export type TestDataPropsType = {
+  question: string;
+  answersOptions: AnswersOptionsType[];
+  rightAnswer: string;
+};
+
 export type TestDataItemPropsType = {
   id: string;
   title: string;
   questionType: string;
-  test: {
-    question: string;
-    answersOptions: {
-      id: string;
-      value: string;
-      answer: string;
-    }[];
-    rightAnswer: string;
-  }[];
+  test: TestDataPropsType[];
   dateTime: string;
 };
 

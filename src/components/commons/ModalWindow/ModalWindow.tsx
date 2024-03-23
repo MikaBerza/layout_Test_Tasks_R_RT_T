@@ -1,5 +1,5 @@
 import React from 'react';
-import { MiddleTitle } from '../titles';
+import { MediumTitle } from '../titles';
 import { ButtonModal } from '../buttons';
 import styles from './ModalWindow.module.css';
 import { ModalWindowPropsType } from '../../../types/customType';
@@ -13,7 +13,7 @@ const ModalWindow = ({
     <div className={styles.wrapper}>
       <div className={styles.inner}>
         <div className={styles.container}>
-          <MiddleTitle title={title} />
+          <MediumTitle title={title} />
           <p className={styles.content}>{content}</p>
           <div className={styles.buttons}>
             {modalButtonData.map(({ nameBtn, onClick, link }, index) => {

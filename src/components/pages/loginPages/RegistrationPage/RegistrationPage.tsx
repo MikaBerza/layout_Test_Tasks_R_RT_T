@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../../redux/hooks';
 import { fetchRegistration } from '../../../../redux/slices/loginFormSlice';
 import { LogoMain } from '../../../commons/logos';
-import { MiddleTitle } from '../../../commons/titles';
+import { MediumTitle } from '../../../commons/titles';
 import { InputField, Checkbox } from '../../../commons/forms';
 import { ButtonLoginForm } from '../../../commons/buttons';
 import { pathList } from '../../../../utils/modules';
@@ -53,7 +53,7 @@ const RegistrationPage = () => {
     <main className={styles.wrapper}>
       <form className={styles.inner} onSubmit={handleFormSubmit}>
         <LogoMain />
-        <MiddleTitle title='Регистрация' />
+        <MediumTitle title='Регистрация' />
         <InputField
           name='registrationLogin'
           type='text'
