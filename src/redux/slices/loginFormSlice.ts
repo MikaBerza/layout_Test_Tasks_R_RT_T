@@ -41,6 +41,7 @@ export const fetchRegistration = createAsyncThunk(
       'https://interns-test-fe.snp.agency/api/v1/signup',
       {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
           'scope-key': token,
@@ -69,6 +70,7 @@ export const fetchAuthorization = createAsyncThunk(
       'https://interns-test-fe.snp.agency/api/v1/signin',
       {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
           'scope-key': token,
@@ -97,6 +99,7 @@ export const fetchGetCurrentUser = createAsyncThunk(
     const response = await fetch(
       'https://interns-test-fe.snp.agency/api/v1/users/current',
       {
+        credentials: 'include',
         headers: {
           'scope-key': token,
         },
